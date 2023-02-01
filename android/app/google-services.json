@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "867181633829",
+    "project_id": "calendarx-79812",
+    "storage_bucket": "calendarx-79812.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867181633829:android:24850abdc77e11517e7acc",
+        "android_client_info": {
+          "package_name": "com.sebastianpartyka.calendarx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867181633829-pbu0q19uv3c0uiifhr4791m3s38vb5di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2K29B7cgdBkZcYjMNIfKuyn5sT-6jU94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867181633829-pbu0q19uv3c0uiifhr4791m3s38vb5di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
