@@ -40,17 +40,37 @@ class _AddEventState extends State<AddEvent> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          InputDatePickerFormField(
-            firstDate: widget.firstDate,
-            lastDate: widget.lastDate,
-            initialDate: _selectedDate,
-            onDateSubmitted: (date) {
-              print(date);
-              setState(() {
-                _selectedDate = date;
-              });
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InputDatePickerFormField(
+              firstDate: widget.firstDate,
+              lastDate: widget.lastDate,
+              initialDate: _selectedDate,
+              onDateSubmitted: (date) {
+                print(date);
+                setState(() {
+                  _selectedDate = date;
+                });
+              },
+            ),
           ),
+          // Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          //     child: FormBuilderDateTimePicker(
+          //       name: "date",
+          //       initialValue: DateTime.now(),
+          //       // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
+          //       initialDate: DateTime.now(),
+          //       fieldHintText: "Add Date",
+          //       initialDatePickerMode: DatePickerMode.day,
+          //       inputType: InputType.date,
+          //       format: DateFormat('EEEE, dd MMMM, yyyy'),
+          //       decoration: InputDecoration(
+          //         contentPadding: EdgeInsets.symmetric(vertical: 10),
+          //         border: OutlineInputBorder(
+          //             borderRadius: BorderRadius.circular(10)),
+          //         prefixIcon: Icon(Icons.calendar_today_rounded),
+          //       ),
           const SizedBox(
             height: 15,
           ),

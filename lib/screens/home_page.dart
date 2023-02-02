@@ -76,8 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Training Log')),
-        shape: RoundedRectangleBorder(
+        title: const Center(child: Text('Training Log')),
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(17),
           ),
@@ -87,8 +87,11 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           TableCalendar(
             eventLoader: _getEventsForTheDay,
-            headerStyle:
-                HeaderStyle(formatButtonVisible: false, titleCentered: true),
+            weekendDays: const [7], //zaznacza tylko wybrany dzień na czerwono
+            headerStyle: const HeaderStyle(
+              formatButtonVisible: false,
+              titleCentered: true,
+            ),
             startingDayOfWeek: StartingDayOfWeek.monday,
             calendarFormat: _calendarFormat,
             onFormatChanged: (format) {
@@ -124,14 +127,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blue,
               ),
             ),
-            calendarBuilders: CalendarBuilders(
-              headerTitleBuilder: (context, day) {
-                return Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(day.toString()),
-                );
-              },
-            ),
+            // poniższe zmienia nazwę miesiąca na dokładną datę z godziną etc.
+            // calendarBuilders: CalendarBuilders(
+            //   headerTitleBuilder: (context, day) {
+            //     return Container(
+            //       padding: const EdgeInsets.all(8.0),
+            //       child: Text(day.toString()),
+            //     );
+            //   },
+            // ),
           ),
           ..._getEventsForTheDay(_selectedDay).map(
             (event) => EventItem(
