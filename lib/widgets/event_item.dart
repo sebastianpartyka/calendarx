@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -19,13 +17,17 @@ class EventItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-      endActionPane: ActionPane(motion: StretchMotion(), children: [
-        SlidableAction(
-          onPressed: (context) => onDelete(),
-          backgroundColor: Colors.red,
-          icon: Icons.delete,
-        )
-      ]),
+      endActionPane: ActionPane(
+        motion: const StretchMotion(),
+        children: [
+          SlidableAction(
+            onPressed: (context) => onDelete(),
+            backgroundColor: Colors.red,
+            icon: Icons.delete,
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ],
+      ),
       child: ListTile(
         title: Text(
           event.title,
@@ -35,7 +37,7 @@ class EventItem extends StatelessWidget {
           event.date.toString(),
           //style: TextStyle(color: Colors.black54),
         ),
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_circle_right_outlined,
           size: 35,
           color: Colors.blue,

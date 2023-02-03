@@ -31,7 +31,7 @@ class _AddEventState extends State<AddEvent> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Event"),
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(17),
           ),
@@ -103,7 +103,7 @@ class _AddEventState extends State<AddEvent> {
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.blue)))),
+                        side: const BorderSide(color: Colors.blue)))),
             onPressed: () {
               _addEvent();
             },
