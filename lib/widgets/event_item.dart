@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../model/event.dart';
 
 class EventItem extends StatelessWidget {
   final Event event;
   final Function() onDelete;
   final Function()? onTap;
+
   const EventItem({
     Key? key,
     required this.event,

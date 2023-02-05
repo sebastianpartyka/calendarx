@@ -207,6 +207,66 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: const Icon(Icons.add),
       ),
+      bottomNavigationBar: BottomAppBar(
+        //  currentIndex: 1;
+        //bottom navigation bar on scaffold
+        color: Colors.blue,
+        shape: const CircularNotchedRectangle(), //shape of notch
+        notchMargin:
+            5, //notche margin between floating button and bottom appbar
+        child: Row(
+          //children inside bottom appbar
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.calendar_month_rounded,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => DemoApp()),
+                // );
+              },
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.person_sharp,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => const Profile()));
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.motion_photos_on_rounded,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const MorePage()),
+                // );
+                //const MorePage();
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

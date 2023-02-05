@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/model/event.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
-
 
 class EditEvent extends StatefulWidget {
   final DateTime firstDate;
@@ -24,6 +22,7 @@ class _EditEventState extends State<EditEvent> {
   late DateTime _selectedDate;
   late TextEditingController _titleController;
   late TextEditingController _descController;
+  late TextEditingController dateCtl = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -63,18 +62,24 @@ class _EditEventState extends State<EditEvent> {
           //     ),
           //     valueTransformer: (value) => value.toString(),
           //   ),
-          
-          // InputDatePickerFormField(
-          //   firstDate: widget.firstDate,
-          //   lastDate: widget.lastDate,
-          //   initialDate: _selectedDate,
-          //   onDateSubmitted: (date) {
-          //     print(date);
-          //     setState(() {
-          //       _selectedDate = date;
-          //     });
-          //   },
-          // ),
+
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InputDatePickerFormField(
+                firstDate: widget.firstDate,
+                lastDate: widget.lastDate,
+                initialDate: _selectedDate,
+                onDateSubmitted: (date) {
+                  print(date);
+                  setState(() {
+                    _selectedDate = date;
+                  });
+                },
+              ),
+            ),
+          ),
           const SizedBox(
             height: 15,
           ),
