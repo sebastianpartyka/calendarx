@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/model/event.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
+
 
 class EditEvent extends StatefulWidget {
   final DateTime firstDate;
@@ -43,17 +46,35 @@ class _EditEventState extends State<EditEvent> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          InputDatePickerFormField(
-            firstDate: widget.firstDate,
-            lastDate: widget.lastDate,
-            initialDate: _selectedDate,
-            onDateSubmitted: (date) {
-              print(date);
-              setState(() {
-                _selectedDate = date;
-              });
-            },
-          ),
+          //  FormBuilderDateTimePicker(
+          //     name: "date",
+          //     initialValue: DateTime.now(),
+          //     // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
+          //     initialDate: DateTime.now(),
+          //     fieldHintText: "Add Date",
+          //     initialDatePickerMode: DatePickerMode.day,
+          //     inputType: InputType.date,
+          //     format: DateFormat('EEEE, dd MMMM, yyyy'),
+          //     decoration: InputDecoration(
+          //       contentPadding: EdgeInsets.symmetric(vertical: 10),
+          //       border:
+          //           OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          //       prefixIcon: Icon(Icons.calendar_today_rounded),
+          //     ),
+          //     valueTransformer: (value) => value.toString(),
+          //   ),
+          
+          // InputDatePickerFormField(
+          //   firstDate: widget.firstDate,
+          //   lastDate: widget.lastDate,
+          //   initialDate: _selectedDate,
+          //   onDateSubmitted: (date) {
+          //     print(date);
+          //     setState(() {
+          //       _selectedDate = date;
+          //     });
+          //   },
+          // ),
           const SizedBox(
             height: 15,
           ),

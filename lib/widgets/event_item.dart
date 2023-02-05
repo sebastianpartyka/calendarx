@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../model/event.dart';
 
 class EventItem extends StatelessWidget {
@@ -39,7 +39,7 @@ class EventItem extends StatelessWidget {
         ),
         leading: const Icon(
           Icons.arrow_circle_right_outlined,
-          size: 35,
+          size: 40,
           color: Colors.blue,
         ),
         onTap: onTap,
