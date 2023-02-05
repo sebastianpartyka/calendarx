@@ -6,6 +6,10 @@ class Event {
   final String? description;
   final DateTime date;
 
+  String releaseDateFormatted() {
+    return DateFormat.yMMMMEEEEd().format(date);
+  }
+
   // readDate(Timestamp dateTime) {
   //   DateTime data = DateTime.parse(dateTime.toDate().toString());
   //   String formatedDate = DateFormat.yMMMMEEEEd().format(data);

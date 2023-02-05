@@ -34,7 +34,8 @@ class EventItem extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          event.date.toString(),
+          event.releaseDateFormatted(),
+          //event.date.toString(),
           //style: TextStyle(color: Colors.black54),
         ),
         leading: const Icon(
