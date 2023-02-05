@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:calendarx/widgets/navigation_drawer_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/screens/edit_event.dart';
@@ -75,8 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavigationDrawerWidget(),
       appBar: AppBar(
-        title: const Center(child: Text('Training Log')),
+        title: const Text('Training Log'),
+        centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(17),
