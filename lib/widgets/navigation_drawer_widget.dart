@@ -124,10 +124,11 @@ class NavigationDrawerWidget extends StatelessWidget {
               icon: Icons.info_rounded,
               onClicked: () => selectedItem(context, 12),
             ),
-            //const SizedBox(height: 10),
+            const SizedBox(height: 200),
             buildMenuItem(
               text: 'Log out',
               icon: Icons.logout_outlined,
+              onClicked: () => selectedItem(context, 13),
             ),
           ],
         ),
@@ -182,7 +183,7 @@ class NavigationDrawerWidget extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        size: 28,
+        size: 30,
         color: color,
       ),
       title: Text(
