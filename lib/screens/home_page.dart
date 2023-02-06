@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:calendarx/features/auth/pages/user_profile.dart';
 import 'package:calendarx/widgets/navigation_drawer_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -251,8 +252,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => const Profile()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UserProfile()));
               },
             ),
             IconButton(
