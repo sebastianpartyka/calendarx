@@ -1,3 +1,4 @@
+import 'package:calendarx/features/auth/pages/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         //useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const AuthGate(),
+      //const MyHomePage(),
     );
   }
 }
