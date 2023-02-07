@@ -1,15 +1,18 @@
+import 'package:calendarx/features/auth/pages/user_profile.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/screens/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:kalendar2/DemoAppDisplayEvent/DemoApp.dart';
 import 'package:calendarx/widgets/user_page.dart';
+import 'package:flutterfire_ui/auth.dart';
 // import 'package:kalendar2/achievements.dart';
 // import 'package:kalendar2/equipment.dart';
 // import 'package:kalendar2/goals.dart';
 // import 'package:kalendar2/homepage.dart';
 // import 'package:kalendar2/stats.dart';
 // import 'package:kalendar2/training_presets.dart';
+import 'package:flutterfire_ui/auth.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 10);
@@ -74,7 +77,7 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Achievements / records',
               icon: Icons.checklist_rounded,
-              onClicked: () => selectedItem(context, 4),
+              onClicked: () => selectedItem(context, 3),
             ),
             //const SizedBox(height: 16),
 
@@ -116,7 +119,7 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Profile',
               icon: Icons.person,
-              onClicked: () => selectedItem(context, 11),
+              onClicked: () => selectedItem(context, 4),
             ),
             //const SizedBox(height: 10),
             buildMenuItem(
@@ -203,15 +206,15 @@ class NavigationDrawerWidget extends StatelessWidget {
     Navigator.of(context).pop(); //przy powracaniu wstecz NavDrawer znika
     switch (index) {
       case 0:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const MyHomePage(),
-        ));
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => const MyHomePage(),
+        // ));
         break;
 
       case 1:
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => Calendar(),
-        // ));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => MyHomePage(),
+        ));
         break;
 
       case 2:
@@ -227,9 +230,9 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
 
       case 4:
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => HomePage(),
-        // ));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const UserProfile(),
+        ));
         break;
 
       case 5:
@@ -277,11 +280,11 @@ class NavigationDrawerWidget extends StatelessWidget {
       //   ));
       //   break;
 
-      // case 13:
-      //   Navigator.of(context).push(MaterialPageRoute(
-      //     builder: (context) => DemoApp(),
-      //   ));
-      //   break;
+      case 13:
+        FlutterFireUIAuth.signOut(
+          context: context,
+        );
+        break;
     }
   }
 }
