@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/screens/edit_event.dart';
 import 'package:table_calendar/table_calendar.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../model/event.dart';
 import '../widgets/event_item.dart';
 import 'add_event.dart';
@@ -49,8 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
     final firstDay = DateTime(_focusedDay.year, _focusedDay.month, 1);
     final lastDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 0);
     _events = {};
-
+    final userID = FirebaseAuth.instance.currentUser?.uid;
     final snap = await FirebaseFirestore.instance
+        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+        .doc(userID)
         .collection('events')
         .where('date', isGreaterThanOrEqualTo: firstDay)
         .where('date', isLessThanOrEqualTo: lastDay)
@@ -182,8 +184,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   );
+                  final userID = FirebaseAuth.instance.currentUser?.uid;
                   if (delete ?? false) {
                     await FirebaseFirestore.instance
+                        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+                        .doc(userID)
                         .collection('events')
                         .doc(event.id)
                         .delete();

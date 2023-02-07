@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/model/event.dart';
-import 'package:intl/intl.dart';
+//import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class EditEvent extends StatefulWidget {
   final DateTime firstDate;
@@ -128,11 +129,18 @@ class _EditEventState extends State<EditEvent> {
   void _addEvent() async {
     final title = _titleController.text;
     final description = _descController.text;
+    final userID = FirebaseAuth.instance.currentUser?.uid;
+    if (userID == null) {
+      throw Exception('User is not logged in');
+    }
+
     if (title.isEmpty) {
       print('title cannot be empty');
       return;
     }
     await FirebaseFirestore.instance
+        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+        .doc(userID)
         .collection('events')
         .doc(widget.event.id)
         .update({

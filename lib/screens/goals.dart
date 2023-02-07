@@ -3,6 +3,7 @@ import 'package:calendarx/screens/home_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // Firebase jest użyty tylko raz w Main i działa wszędzie
 // void main() async {
@@ -45,6 +46,7 @@ class _GoalsState extends State<Goals> {
   ];
 
   final controller = TextEditingController();
+  final userID = FirebaseAuth.instance.currentUser?.uid;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +62,11 @@ class _GoalsState extends State<Goals> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance.collection('categories').add(
+          FirebaseFirestore.instance
+              .collection('users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+              .doc(userID)
+              .collection('categories')
+              .add(
             {
               'title': controller.text,
             },
@@ -157,17 +163,23 @@ class _GoalsState extends State<Goals> {
 }
 
 class StreamBuilderFire extends StatelessWidget {
-  const StreamBuilderFire({
+  StreamBuilderFire({
     Key? key,
     required this.controller,
   }) : super(key: key);
 
   final TextEditingController controller;
+  final userID = FirebaseAuth.instance.currentUser?.uid;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('categories').snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection(
+              'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+          .doc(userID)
+          .collection('categories')
+          .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text('Unexpected error has occurred');
@@ -187,6 +199,9 @@ class StreamBuilderFire extends StatelessWidget {
                   key: ValueKey(document.id),
                   onDismissed: (_) {
                     FirebaseFirestore.instance
+                        .collection(
+                            'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+                        .doc(userID)
                         .collection('categories')
                         .doc(document.id)
                         .delete();
