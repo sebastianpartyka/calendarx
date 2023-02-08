@@ -5,22 +5,13 @@ class Event {
   final String title;
   final String? description;
   final DateTime date;
+  final String id;
 
+  //wyświetlanie zformatowanej daty
   String releaseDateFormatted() {
     return DateFormat.yMMMMEEEEd().format(date);
   }
 
-  // readDate(Timestamp dateTime) {
-  //   DateTime data = DateTime.parse(dateTime.toDate().toString());
-  //   String formatedDate = DateFormat.yMMMMEEEEd().format(data);
-  //   return formatedDate;
-  // }
-
-  // wyświetlanie daty do zrobienia
-  // final formattedDate = DateFormat.yMMMMEEEEd(DateTime.now());
-  // ('EEEE, dd MMMM, yyyy');
-
-  final String id;
   Event({
     required this.title,
     this.description,

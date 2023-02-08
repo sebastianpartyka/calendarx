@@ -1,33 +1,10 @@
 //import 'package:calendarx/firebase_options.dart';
 import 'package:calendarx/screens/home_page.dart';
+import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-// Firebase jest użyty tylko raz w Main i działa wszędzie
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions().currentPlatform,
-//   );
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const Goals(),
-//     );
-//   }
-// }
 
 class Goals extends StatefulWidget {
   const Goals({
@@ -63,7 +40,8 @@ class _GoalsState extends State<Goals> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           FirebaseFirestore.instance
-              .collection('users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+              .collection(
+                  'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
               .doc(userID)
               .collection('categories')
               .add(
@@ -76,88 +54,8 @@ class _GoalsState extends State<Goals> {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        //  currentIndex: 1;
-        //bottom navigation bar on scaffold
-        color: Colors.blue,
-        shape: const CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            5, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.calendar_month_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => DemoApp()),
-                // );
-              },
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.person_sharp,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => const Profile()));
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.motion_photos_on_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const MorePage()),
-                // );
-                //const MorePage();
-              },
-            ),
-          ],
-        ),
-      ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: currentIndex,
-      //   onTap: (index) => setState(() => currentIndex = index),
-      //   backgroundColor: Colors.blue,
-      //   selectedItemColor: Colors.white,
-      //   iconSize: 30,
-      //   selectedFontSize: 20,
-      //   showUnselectedLabels: false,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //         icon: Icon(Icons.list_rounded),
-      //         label: 'List',
-      //         backgroundColor: Colors.white),
-      //     BottomNavigationBarItem(
-      //         icon: Icon(Icons.Goals_month_sharp),
-      //         label: 'Goals',
-      //         backgroundColor: Colors.white),
-      //   ],
-      // ),
-      body:
-          //screens[currentIndex]
-          StreamBuilderFire(controller: controller),
+      bottomNavigationBar: const BottomNavBar(),
+      body: StreamBuilderFire(controller: controller),
     );
   }
 }

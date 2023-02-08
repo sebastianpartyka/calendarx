@@ -1,14 +1,19 @@
 import 'dart:collection';
 
 import 'package:calendarx/features/auth/pages/user_profile.dart';
+import 'package:calendarx/screens/goals.dart';
+import 'package:calendarx/screens/index1.dart';
+import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:calendarx/widgets/navigation_drawer_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/screens/edit_event.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../model/event.dart';
-import '../widgets/event_item.dart';
+import 'package:calendarx/model/event.dart';
+//import '../model/event.dart';
+import 'package:calendarx/widgets/event_item.dart';
+//import '../widgets/event_item.dart';
 import 'add_event.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -51,7 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _events = {};
     final userID = FirebaseAuth.instance.currentUser?.uid;
     final snap = await FirebaseFirestore.instance
-        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+        .collection(
+            'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
         .doc(userID)
         .collection('events')
         .where('date', isGreaterThanOrEqualTo: firstDay)
@@ -123,8 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
             calendarStyle: const CalendarStyle(
-              //  todayDecoration:
-              //     BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+              todayDecoration:
+                  BoxDecoration(color: Colors.orange, shape: BoxShape.circle),
               weekendTextStyle: TextStyle(
                 color: Colors.red,
               ),
@@ -187,7 +193,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   final userID = FirebaseAuth.instance.currentUser?.uid;
                   if (delete ?? false) {
                     await FirebaseFirestore.instance
-                        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+                        .collection(
+                            'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
                         .doc(userID)
                         .collection('events')
                         .doc(event.id)
@@ -217,68 +224,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        //  currentIndex: 1;
-        //bottom navigation bar on scaffold
-        color: Colors.blue,
-        shape: const CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            5, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.calendar_month_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => DemoApp()),
-                // );
-              },
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.person_sharp,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const UserProfile()));
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.motion_photos_on_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const MorePage()),
-                // );
-                //const MorePage();
-              },
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
+
+
