@@ -34,7 +34,7 @@ class _AddEventState extends State<AddEvent> {
         title: const Text("Add Event"),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(17),
+            bottom: Radius.circular(20),
           ),
         ),
       ),
@@ -127,7 +127,8 @@ class _AddEventState extends State<AddEvent> {
       return;
     }
     await FirebaseFirestore.instance
-        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+        .collection(
+            'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
         .doc(userID)
         .collection('events')
         .add({

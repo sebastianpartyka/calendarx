@@ -39,7 +39,7 @@ class _EditEventState extends State<EditEvent> {
         title: const Text("Edit Event"),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(17),
+            bottom: Radius.circular(20),
           ),
         ),
       ),
@@ -139,7 +139,8 @@ class _EditEventState extends State<EditEvent> {
       return;
     }
     await FirebaseFirestore.instance
-        .collection('users')  // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+        .collection(
+            'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
         .doc(userID)
         .collection('events')
         .doc(widget.event.id)

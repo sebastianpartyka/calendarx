@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(17),
+            bottom: Radius.circular(20),
           ),
         ),
       ),
@@ -228,5 +228,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

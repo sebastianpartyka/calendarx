@@ -33,7 +33,7 @@ class _GoalsState extends State<Goals> {
         centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
+            bottom: Radius.circular(20),
           ),
         ),
       ),

@@ -24,7 +24,7 @@ class EventItem extends StatelessWidget {
             onPressed: (context) => onDelete(),
             backgroundColor: Colors.red,
             icon: Icons.delete,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(20),
           ),
         ],
       ),
