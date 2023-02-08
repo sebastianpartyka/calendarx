@@ -1,6 +1,8 @@
 import 'package:calendarx/features/auth/pages/user_profile.dart';
+import 'package:calendarx/screens/achievements.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/screens/home_page.dart';
+import 'package:calendarx/screens/index1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:kalendar2/DemoAppDisplayEvent/DemoApp.dart';
@@ -13,15 +15,18 @@ import 'package:flutterfire_ui/auth.dart';
 // import 'package:kalendar2/stats.dart';
 // import 'package:kalendar2/training_presets.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 10);
+
   @override
   Widget build(BuildContext context) {
     final name = 'Hit Richards';
     final email = 'hit@abs.com';
     final urlImage =
-        'https://sa.kapamilya.com/absnews/abscbnnews/media/news-special1/lifestyle/9/7/kingz-hit-richards-090716.jpg';
+        'https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png';
+    //https://www.seekpng.com/png/detail/72-729700_account-avatar-face-head-person-profile-user-comments.png
 
     return Drawer(
       child: Material(
@@ -35,11 +40,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               email: email,
               onClicked: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const UserPage(
-                    name: 'Hit Richards',
-                    urlImage:
-                        'https://sa.kapamilya.com/absnews/abscbnnews/media/news-special1/lifestyle/9/7/kingz-hit-richards-090716.jpg',
-                  ),
+                  builder: (context) => const UserProfile(),
                 ),
               ),
             ),
@@ -206,14 +207,14 @@ class NavigationDrawerWidget extends StatelessWidget {
     Navigator.of(context).pop(); //przy powracaniu wstecz NavDrawer znika
     switch (index) {
       case 0:
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => const MyHomePage(),
-        // ));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const Index1(),
+        ));
         break;
 
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => MyHomePage(),
+          builder: (context) => const MyHomePage(),
         ));
         break;
 
@@ -224,9 +225,9 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
 
       case 3:
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => Calendar(),
-        // ));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const Achievements(),
+        ));
         break;
 
       case 4:

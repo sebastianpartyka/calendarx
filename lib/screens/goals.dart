@@ -1,5 +1,4 @@
 //import 'package:calendarx/firebase_options.dart';
-import 'package:calendarx/screens/home_page.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +15,6 @@ class Goals extends StatefulWidget {
 }
 
 class _GoalsState extends State<Goals> {
-  // int currentIndex = 0;
-  final screens = [
-    const MyHomePage(),
-    const Goals(),
-  ];
-
   final controller = TextEditingController();
   final userID = FirebaseAuth.instance.currentUser?.uid;
 
@@ -118,6 +111,7 @@ class StreamBuilderFire extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                 ),
+                maxLines: null,
               ),
             ),
           ],
