@@ -1,3 +1,4 @@
+import 'package:calendarx/screens/add_achievement.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -25,29 +26,22 @@ class _AchievementsState extends State<Achievements> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const AddAchievement()));
+        },
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const BottomNavBar(),
       body: ListView(
-        children: [
+        children: const [
           // SizedBox(
           //   height: 20,
           // ),
           AchievementCard(),
           AchievementCard(),
           AchievementCard(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
-          AchievementWidget(),
         ],
       ),
     );
@@ -93,7 +87,7 @@ class AchievementCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 7,
           ),
           ListTile(
@@ -103,24 +97,40 @@ class AchievementCard extends StatelessWidget {
                 // side: BorderSide(width: 2),
                 borderRadius: BorderRadius.circular(20),
               ),
-              leading: Icon(
+              leading: const Icon(
                 FeatherIcons.award,
+                //EvaIcons.awardOutline,
                 color: Colors.white,
                 size: 40,
               ),
               title: Padding(
                 padding: const EdgeInsets.only(bottom: 10.0),
-                child: Text(
-                  '100 m',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Text(
+                      '100m',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: Text(
+                        '13.78 s',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              subtitle: Text(
+              subtitle: const Text(
                 'XXV Bieg Solidarności',
                 style: TextStyle(fontSize: 16),
               ),
-              trailing: Text(
+              trailing: const Text(
                 '20.02.2022',
                 style: TextStyle(fontSize: 15),
               )),
@@ -170,10 +180,9 @@ class AchievementWidget extends StatelessWidget {
           Radius.circular(80),
         ),
       ),
-      child: Text(
+      child: const Text(
         ('Tekst tekst tekst badbabfabfab fasdklhfaskl;hfasl;'),
-        style:
-            const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
   }
