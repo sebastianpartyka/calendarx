@@ -17,7 +17,7 @@ class Achievement {
     required this.id,
   });
 
-// Map<String, dynamic> ToFirestore() 
+  //Map<String, dynamic> ToFirestore() {
   Map<String, Object?> ToFirestore() {
     return {
       'date': Timestamp.fromDate(date),

@@ -17,6 +17,10 @@ class _AddAchievementState extends State<AddAchievement> {
   final _ctrlocation = TextEditingController();
   final _ctrdescription = TextEditingController();
 
+  // var _selectedDate;
+  // DateTime _dateTime = DateTime.now();
+  // late final _selectedDate;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,21 +75,43 @@ class _AddAchievementState extends State<AddAchievement> {
           // ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: FormBuilderDateTimePicker(
-              name: "date",
-              initialValue: DateTime.now(),
-              // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
-              initialDate: DateTime.now(),
-              fieldHintText: "Add Date",
-              initialDatePickerMode: DatePickerMode.day,
-              inputType: InputType.date,
-              format: DateFormat('EEEE, dd MMMM, yyyy'),
-              decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                prefixIcon: const Icon(Icons.calendar_today_rounded),
-              ),
+            child: Column(
+              children: [
+                //Text(_dateTime.toIso8601String()),
+                /////////
+                FormBuilderDateTimePicker(
+                  name: "date",
+                  initialValue: DateTime.now(),
+                  // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
+                  initialDate: DateTime.now(),
+                  fieldHintText: "Add Date",
+                  initialDatePickerMode: DatePickerMode.day,
+                  inputType: InputType.date,
+                  format: DateFormat('EEEE, dd MMMM, yyyy'),
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    prefixIcon: const Icon(Icons.calendar_today_rounded),
+                  ),
+                  // onChanged: ((val) => (_selectedDate) {
+                  //       print(_selectedDate);
+                  //       setState(() {
+                  //         _selectedDate = val;
+                  //       });
+                  //     }),
+             //     onChanged: (val) { _addAchievement(val); }
+
+                  // (val) {
+                  //   _addAchievement();
+                  // }
+
+                  // (val) {
+                  // print(val);
+                  // _addAchievement(val);
+                  // },
+                ),
+              ],
             ),
           ),
 
@@ -124,6 +150,7 @@ class _AddAchievementState extends State<AddAchievement> {
                         side: const BorderSide(color: Colors.blue)))),
             onPressed: () {
               _addAchievement();
+              // print _dateTime;
             },
             child: const Text("Save"),
           ),
@@ -138,6 +165,7 @@ class _AddAchievementState extends State<AddAchievement> {
     // final _ctrdate = TextEditingController();
     final location = _ctrlocation.text;
     final description = _ctrdescription.text;
+    // final date = _selectedDate;
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -156,7 +184,7 @@ class _AddAchievementState extends State<AddAchievement> {
       "result": result,
       "location": location,
       "description": description,
-      // "date": Timestamp.fromDate(_selectedDate),
+    //  "date": Timestamp.fromDate(selectedDate),
     });
     if (mounted) {
       Navigator.pop<bool>(context, true);
