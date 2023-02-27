@@ -1,4 +1,5 @@
 import 'package:calendarx/screens/add_achievement.dart';
+import 'package:calendarx/screens/edit_achievement.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +122,25 @@ class StreamBuilderFireAchievement extends StatelessWidget {
                   motion: const StretchMotion(),
                   children: [
                     SlidableAction(
-                      onPressed: ((context) {}),
+                      onPressed: ((context) => {}),
+                      // ((context) => {
+                      //       Navigator.of(context).push(
+                      //         MaterialPageRoute(
+                      //           builder: (context) => EditAchievement(
+                      //             document:
+
+                      //                 // achievement:
+                      //                 // document.id
+                      //                 Achievement(
+                      //                     eventname: document['eventname'],
+                      //                     result: document['result'],
+                      //                     // date: document['date'],
+                      //                     id: document['id']),
+                      //           ),
+                      //         ),
+                      //       )
+                      //     }),
+
                       backgroundColor: Colors.green,
                       // foregroundColor: Colors.green,
                       icon: FeatherIcons.edit2,

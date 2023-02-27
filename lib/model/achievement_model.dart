@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Achievement {
   String eventname;
   String result;
-  final DateTime date;
+  // final DateTime date;
   String? location;
   String? description;
   String id;
@@ -11,7 +11,7 @@ class Achievement {
   Achievement({
     required this.eventname,
     required this.result,
-    required this.date,
+    //   required this.date,
     this.location,
     this.description,
     required this.id,
@@ -20,7 +20,7 @@ class Achievement {
   //Map<String, dynamic> ToFirestore() {
   Map<String, Object?> ToFirestore() {
     return {
-      'date': Timestamp.fromDate(date),
+      //     'date': Timestamp.fromDate(date),
       'eventname': eventname,
       'result': result,
       'location': location,
@@ -28,11 +28,12 @@ class Achievement {
     };
   }
 
-  factory Achievement.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot,
+  factory Achievement.fromFirestore(
+      DocumentSnapshot<Map<String, dynamic>> snapshot,
       [SnapshotOptions? options]) {
     final data = snapshot.data()!;
     return Achievement(
-      date: data['date'].toDate(),
+      //     date: data['date'].toDate(),
       eventname: data['eventname'],
       result: data['result'],
       location: data['location'],
@@ -40,6 +41,4 @@ class Achievement {
       id: snapshot.id,
     );
   }
-
-
 }

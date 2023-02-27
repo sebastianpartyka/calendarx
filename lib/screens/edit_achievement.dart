@@ -1,21 +1,52 @@
+import 'package:calendarx/model/achievement_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class AddAchievement extends StatefulWidget {
-  const AddAchievement({super.key});
+// class EditAchievement extends StatefulWidget {
+//   const EditAchievement({super.key});
+//   @override
+//   State<EditAchievement> createState() => _EditAchievementState();
+// }
+
+class EditAchievement extends StatefulWidget {
+  // final DateTime firstDate;
+  // final DateTime lastDate;
+  // final Achievement achievement;
+  final Achievement document;
+  const EditAchievement(
+      {Key? key,
+      // required this.firstDate,
+      // required this.lastDate,
+      required this.document})
+      : super(key: key);
+
   @override
-  State<AddAchievement> createState() => _AddAchievementState();
+  State<EditAchievement> createState() => _EditAchievementState();
 }
 
-class _AddAchievementState extends State<AddAchievement> {
-  final _ctreventname = TextEditingController();
-  final _ctrresult = TextEditingController();
+class _EditAchievementState extends State<EditAchievement> {
+  late TextEditingController _ctreventname;
+  late TextEditingController _ctrresult;
+  late TextEditingController _ctrlocation;
+  late TextEditingController _ctrdescription;
+
+  @override
+  void initState() {
+    super.initState();
+    //   _selectedDate = widget.event.date;
+    _ctreventname = TextEditingController(text: widget.document.eventname);
+    _ctrresult = TextEditingController(text: widget.document.result);
+    _ctrlocation = TextEditingController(text: widget.document.location);
+    _ctrdescription = TextEditingController(text: widget.document.description);
+  }
+
+  // final _ctrresult = TextEditingController();
   // final _ctrdate = TextEditingController();
-  final _ctrlocation = TextEditingController();
-  final _ctrdescription = TextEditingController();
+  // final _ctrlocation = TextEditingController();
+  // final _ctrdescription = TextEditingController();
 
   // var _selectedDate;
   // DateTime _dateTime = DateTime.now();
@@ -25,7 +56,7 @@ class _AddAchievementState extends State<AddAchievement> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Achievement"),
+        title: const Text("Edit Achievement"),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
@@ -84,7 +115,7 @@ class _AddAchievementState extends State<AddAchievement> {
                   initialValue: DateTime.now(),
                   // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
                   initialDate: DateTime.now(),
-                  fieldHintText: "Add Date",
+                  fieldHintText: "Edit Date",
                   initialDatePickerMode: DatePickerMode.day,
                   inputType: InputType.date,
                   format: DateFormat('EEEE, dd MMMM, yyyy'),
@@ -179,7 +210,8 @@ class _AddAchievementState extends State<AddAchievement> {
             'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
         .doc(userID)
         .collection('achievements')
-        .add({
+        .doc(widget.document.id)
+        .update({
       "eventname": eventname,
       "result": result,
       "location": location,
