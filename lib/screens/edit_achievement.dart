@@ -15,13 +15,18 @@ class EditAchievement extends StatefulWidget {
   // final DateTime firstDate;
   // final DateTime lastDate;
   // final Achievement achievement;
-  final Achievement document;
-  const EditAchievement(
-      {Key? key,
-      // required this.firstDate,
-      // required this.lastDate,
-      required this.document})
-      : super(key: key);
+  // final Achievement document;
+
+  const EditAchievement({
+    Key? key,
+    // required this.firstDate,
+    // required this.lastDate,
+    required this.document,
+    //     required this.eventID,
+  }) : super(key: key);
+  // final Map<String, dynamic> document;
+  final QueryDocumentSnapshot<Object?> document;
+//  final String eventID;
 
   @override
   State<EditAchievement> createState() => _EditAchievementState();
@@ -37,10 +42,11 @@ class _EditAchievementState extends State<EditAchievement> {
   void initState() {
     super.initState();
     //   _selectedDate = widget.event.date;
-    _ctreventname = TextEditingController(text: widget.document.eventname);
-    _ctrresult = TextEditingController(text: widget.document.result);
-    _ctrlocation = TextEditingController(text: widget.document.location);
-    _ctrdescription = TextEditingController(text: widget.document.description);
+    _ctreventname = TextEditingController(text: widget.document['eventname']);
+    _ctrresult = TextEditingController(text: widget.document['result']);
+    _ctrlocation = TextEditingController(text: widget.document['location']);
+    _ctrdescription =
+        TextEditingController(text: widget.document['description']);
   }
 
   // final _ctrresult = TextEditingController();

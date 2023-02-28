@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:calendarx/screens/add_achievement.dart';
 import 'package:calendarx/screens/edit_achievement.dart';
 import 'package:calendarx/screens/goals.dart';
@@ -91,6 +93,7 @@ class StreamBuilderFireAchievement extends StatelessWidget {
 
   //final TextEditingController controller;
   final userID = FirebaseAuth.instance.currentUser?.uid;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -116,18 +119,21 @@ class StreamBuilderFireAchievement extends StatelessWidget {
           children: [
             const SizedBox(height: 10),
             for (final document in documents) ...[
+              //   Map<String, dynamic> document = snapshot.data!.docs[index].data() as Map<String, dynamic>;
               Slidable(
                 key: ValueKey(document.id),
                 endActionPane: ActionPane(
                   motion: const StretchMotion(),
                   children: [
                     SlidableAction(
-                      onPressed: ((context) => {}),
-                      // ((context) => {
-                      //       Navigator.of(context).push(
-                      //         MaterialPageRoute(
-                      //           builder: (context) => EditAchievement(
-                      //             document:
+                      onPressed: //((context) => {}),
+                          ((context) => {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (builder) => EditAchievement(
+                                          document: document,
+                                       //   eventID: snapshot.data?.docs.id,
+                                        )))
+                              }),
 
                       //                 // achievement:
                       //                 // document.id
