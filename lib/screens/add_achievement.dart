@@ -94,13 +94,15 @@ class _AddAchievementState extends State<AddAchievement> {
                         borderRadius: BorderRadius.circular(20)),
                     prefixIcon: const Icon(Icons.calendar_today_rounded),
                   ),
-                  // onChanged: ((val) => (_selectedDate) {
-                  //       print(_selectedDate);
+                  //onChanged:
+                  // ((val) => (selectedDate) {
+                  //       print(selectedDate);
                   //       setState(() {
-                  //         _selectedDate = val;
+                  //         selectedDate = val;
                   //       });
                   //     }),
-                  //     onChanged: (val) { _addAchievement(val); }
+                  //     onChanged:
+                  //      (val) { _addAchievement(val); }
 
                   // (val) {
                   //   _addAchievement();
@@ -162,10 +164,10 @@ class _AddAchievementState extends State<AddAchievement> {
   void _addAchievement() async {
     final eventname = _ctreventname.text;
     final result = _ctrresult.text;
-    // final _ctrdate = TextEditingController();
+    //final _ctrdate = TextEditingController();
     final location = _ctrlocation.text;
     final description = _ctrdescription.text;
-    // final date = _selectedDate;
+    // final date = selectedDate;
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -184,7 +186,7 @@ class _AddAchievementState extends State<AddAchievement> {
       "result": result,
       "location": location,
       "description": description,
-      //  "date": Timestamp.fromDate(selectedDate),
+      // "date": Timestamp.fromDate(selectedDate),
     });
     if (mounted) {
       Navigator.pop<bool>(context, true);

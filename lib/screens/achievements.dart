@@ -247,15 +247,15 @@ class AchievementCard extends StatelessWidget {
                     Text(
                       (eventname),
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Text(
                         (result),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                     ),
@@ -264,9 +264,9 @@ class AchievementCard extends StatelessWidget {
               ),
               subtitle: Text(
                 (location),
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
-              trailing: Text(
+              trailing: const Text(
                 // (date),
                 ('20.02.2022'),
                 style: TextStyle(fontSize: 15),
