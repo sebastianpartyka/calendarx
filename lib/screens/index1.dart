@@ -61,6 +61,10 @@ final lastSignInTime =
 // DateTime dateToday =
 //     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
+// String releaseDateFormatted() {
+//   return DateFormat.yMMMMEEEEd().format();
+// }
+
 class _Index1State extends State<Index1> {
   @override
   Widget build(BuildContext context) {
@@ -84,7 +88,7 @@ class _Index1State extends State<Index1> {
             ),
             Center(
               child: Text(
-                'Account creation date: $creationTime',
+                'Account created:  ${DateFormat('yMMMMd').format(creationTime!)}',
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -99,7 +103,7 @@ class _Index1State extends State<Index1> {
               height: 20,
             ),
             Text(
-              'Last sign in: $lastSignInTime',
+              'Last sign in: ${DateFormat('dd.MM.yyyy, hh:mm').format(lastSignInTime!)}',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(
@@ -114,6 +118,13 @@ class _Index1State extends State<Index1> {
             ),
             Text(
               'Your name: $userName',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Text(
+              'Quote of the day: text text text',
               style: TextStyle(fontSize: 20),
             ),
           ],
