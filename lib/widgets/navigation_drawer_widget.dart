@@ -22,8 +22,8 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = 'Hit Richards';
-    final email = 'hit@abs.com';
+    final name = FirebaseAuth.instance.currentUser!.displayName;
+    final email = FirebaseAuth.instance.currentUser?.email;
     final urlImage =
         'https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png';
     //https://www.seekpng.com/png/detail/72-729700_account-avatar-face-head-person-profile-user-comments.png
@@ -142,8 +142,8 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   Widget buildHeader({
     required String urlImage,
-    required String name,
-    required String email,
+    required name,
+    required email,
     required VoidCallback onClicked,
   }) =>
       InkWell(
@@ -162,12 +162,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ],
               )

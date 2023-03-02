@@ -6,32 +6,32 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:meta/meta.dart';
 
-class UserMetadata {
-  // ignore: public_member_api_docs
-  @protected
-  UserMetadata(this._creationTimestamp, this._lastSignInTime);
+// class UserMetadata {
+//   // ignore: public_member_api_docs
+//   @protected
+//   UserMetadata(this._creationTimestamp, this._lastSignInTime);
 
-  final int? _creationTimestamp;
-  final int? _lastSignInTime;
+//   final int? _creationTimestamp;
+//   final int? _lastSignInTime;
 
-  /// When this account was created as dictated by the server clock.
-  DateTime? get creationTime => _creationTimestamp == null
-      ? null
-      : DateTime.fromMillisecondsSinceEpoch(_creationTimestamp!);
+//   /// When this account was created as dictated by the server clock.
+//   DateTime? get creationTime => _creationTimestamp == null
+//       ? null
+//       : DateTime.fromMillisecondsSinceEpoch(_creationTimestamp!);
 
-  /// When the user last signed in as dictated by the server clock.
-  ///
-  /// This is only accurate up to a granularity of 2 minutes for consecutive
-  /// sign-in attempts.
-  DateTime? get lastSignInTime => _lastSignInTime == null
-      ? null
-      : DateTime.fromMillisecondsSinceEpoch(_lastSignInTime!);
+//   /// When the user last signed in as dictated by the server clock.
+//   ///
+//   /// This is only accurate up to a granularity of 2 minutes for consecutive
+//   /// sign-in attempts.
+//   DateTime? get lastSignInTime => _lastSignInTime == null
+//       ? null
+//       : DateTime.fromMillisecondsSinceEpoch(_lastSignInTime!);
 
-  @override
-  String toString() {
-    return 'UserMetadata(creationTime: ${creationTime.toString()}, lastSignInTime: ${lastSignInTime.toString()})';
-  }
-}
+//   @override
+//   String toString() {
+//     return 'UserMetadata(creationTime: ${creationTime.toString()}, lastSignInTime: ${lastSignInTime.toString()})';
+//   }
+// }
 
 class Index1 extends StatefulWidget {
   const Index1({super.key});
@@ -52,6 +52,12 @@ class Index1 extends StatefulWidget {
 // DateTime dateOnly = now.getDateOnly();
 final now = DateTime.now();
 String formatter = DateFormat.yMMMMd().format(now);
+final userEmail = FirebaseAuth.instance.currentUser?.email;
+final userName = FirebaseAuth.instance.currentUser!.displayName;
+final creationTime = FirebaseAuth.instance.currentUser?.metadata.creationTime;
+final lastSignInTime =
+    FirebaseAuth.instance.currentUser?.metadata.lastSignInTime;
+
 // DateTime dateToday =
 //     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
@@ -76,9 +82,11 @@ class _Index1State extends State<Index1> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              'Account creation date: ',
-              style: TextStyle(fontSize: 20),
+            Center(
+              child: Text(
+                'Account creation date: $creationTime',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             SizedBox(
               height: 20,
@@ -91,7 +99,21 @@ class _Index1State extends State<Index1> {
               height: 20,
             ),
             Text(
-              'text text text:',
+              'Last sign in: $lastSignInTime',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Your email: $userEmail',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Your name: $userName',
               style: TextStyle(fontSize: 20),
             ),
           ],
