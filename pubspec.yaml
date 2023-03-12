@@ -49,6 +49,7 @@ dependencies:
   flutter_feather_icons: ^2.0.0+1
   eva_icons_flutter: ^3.1.0
   flutter_form_builder: ^7.7.0
+  google_fonts: ^4.0.3
 
 dependency_overrides:
   intl: ^0.17.0-nullsafety.2
@@ -91,11 +92,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+   fonts:
+    - family: Ubuntu
+          fonts:
+          - asset: assets/fonts/Ubuntu-Bold.ttf
+          - asset: assets/fonts/Ubuntu-Light.ttf
+          - asset: assets/fonts/Ubuntu-Medium.ttf
+          - asset: assets/fonts/Ubuntu-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

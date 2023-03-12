@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // class UserMetadata {
 //   // ignore: public_member_api_docs
@@ -83,49 +84,83 @@ class _Index1State extends State<Index1> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
               child: Text(
-                'Account created:  ${DateFormat('yMMMMd').format(creationTime!)}',
-                style: TextStyle(fontSize: 20),
+                'Account created: ${DateFormat('yMMMMd').format(creationTime!)}',
+                style: const TextStyle(fontSize: 20),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               'Today is: $formatter',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               'Last sign in: ${DateFormat('dd.MM.yyyy, hh:mm').format(lastSignInTime!)}',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               'Your email: $userEmail',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               'Your name: $userName',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
-              height: 40,
+            const SizedBox(
+              height: 30,
             ),
-            Text(
-              'Quote of the day: text text text',
-              style: TextStyle(fontSize: 20),
+            Container(
+              height: 350,
+              width: MediaQuery.of(context).size.width, //cała szerokość ekranu
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  )),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  const Text(
+                    'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontFamily: 'Ubuntu-Regular',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Text(
+                    'Benjamin Franklin',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
           ],
         ),
