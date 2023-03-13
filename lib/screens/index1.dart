@@ -80,90 +80,112 @@ class _Index1State extends State<Index1> {
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            const SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Text(
-                'Account created: ${DateFormat('yMMMMd').format(creationTime!)}',
-                style: const TextStyle(fontSize: 20),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Today is: $formatter',
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Text(
+              'Account created: ${DateFormat('yMMMMd').format(creationTime!)}',
               style: const TextStyle(fontSize: 20),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Last sign in: ${DateFormat('dd.MM.yyyy, hh:mm').format(lastSignInTime!)}',
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Your email: $userEmail',
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Your name: $userName',
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Container(
-              height: 350,
-              width: MediaQuery.of(context).size.width, //cała szerokość ekranu
-              decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  )),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 70,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Today is: $formatter',
+            style: const TextStyle(fontSize: 20),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Last sign in: ${DateFormat('dd.MM.yyyy, hh:mm').format(lastSignInTime!)}',
+            style: const TextStyle(fontSize: 20),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Your email: $userEmail',
+            style: const TextStyle(fontSize: 20),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Your name: $userName',
+            style: const TextStyle(fontSize: 20),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            height: 350,
+            width: 380,
+            //MediaQuery.of(context).size.width, //cała szerokość ekranu
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
+                  bottomLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+                )),
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisSize: MainAxisSize.max,
+              //  mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 50,
+                ),
+                Container(
+                  padding: EdgeInsets.only(right: 300),
+                  child: Image(
+                    image: AssetImage('assets/images/quote.png'),
+                    height: 30,
+                    width: 30,
+                    color: Colors.white,
+                    alignment: Alignment.topLeft,
                   ),
-                  const Text(
-                    'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontFamily: 'Ubuntu-Regular',
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Text(
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.ubuntu(
+                      textStyle: TextStyle(color: Colors.white, fontSize: 20)),
+                  // style: TextStyle(
+                  //     fontSize: 20,
+                  //     color: Colors.white,
+                  //     // fontFamily: 'Ubuntu-Regular',
+                  //     fontFamily: 'Ubuntu-Medium',
+                  //     fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Center(
+                  child: Text(
                     'Benjamin Franklin',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
+                    style: GoogleFonts.ubuntu(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

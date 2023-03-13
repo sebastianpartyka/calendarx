@@ -24,8 +24,11 @@ class NavigationDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final name = FirebaseAuth.instance.currentUser!.displayName;
     final email = FirebaseAuth.instance.currentUser?.email;
-    final urlImage =
-        'https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png';
+    // final urlImage =
+    //     'https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png';
+
+    //'assets/images/profile.png';
+    //https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png
     //https://www.seekpng.com/png/detail/72-729700_account-avatar-face-head-person-profile-user-comments.png
 
     return Drawer(
@@ -35,7 +38,7 @@ class NavigationDrawerWidget extends StatelessWidget {
           padding: padding,
           children: <Widget>[
             buildHeader(
-              urlImage: urlImage,
+              //  urlImage: urlImage,
               name: name,
               email: email,
               onClicked: () => Navigator.of(context).push(
@@ -141,7 +144,7 @@ class NavigationDrawerWidget extends StatelessWidget {
   }
 
   Widget buildHeader({
-    required String urlImage,
+    // required String urlImage,
     required name,
     required email,
     required VoidCallback onClicked,
@@ -153,9 +156,10 @@ class NavigationDrawerWidget extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                radius: 40,
-                backgroundImage: NetworkImage(urlImage),
-              ),
+                  radius: 40,
+                  backgroundImage: AssetImage('assets/images/profile.png')
+                  //NetworkImage(urlImage),
+                  ),
               SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
