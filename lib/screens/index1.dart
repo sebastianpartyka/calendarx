@@ -127,8 +127,8 @@ class _Index1State extends State<Index1> {
             height: 350,
             width: 380,
             //MediaQuery.of(context).size.width, //cała szerokość ekranu
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
@@ -145,8 +145,8 @@ class _Index1State extends State<Index1> {
                   height: 50,
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 300),
-                  child: Image(
+                  padding: const EdgeInsets.only(right: 300),
+                  child: const Image(
                     image: AssetImage('assets/images/quote.png'),
                     height: 30,
                     width: 30,
@@ -161,7 +161,7 @@ class _Index1State extends State<Index1> {
                   'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.ubuntu(
-                      textStyle: TextStyle(color: Colors.white, fontSize: 20)),
+                      textStyle: const TextStyle(color: Colors.white, fontSize: 20)),
                   // style: TextStyle(
                   //     fontSize: 20,
                   //     color: Colors.white,
@@ -176,7 +176,7 @@ class _Index1State extends State<Index1> {
                   child: Text(
                     'Benjamin Franklin',
                     style: GoogleFonts.ubuntu(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold)),
