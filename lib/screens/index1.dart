@@ -1,3 +1,4 @@
+import 'package:calendarx/widgets/quote_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:intl/intl.dart';
@@ -123,68 +124,9 @@ class _Index1State extends State<Index1> {
           const SizedBox(
             height: 30,
           ),
-          Container(
-            height: 350,
-            width: 380,
-            //MediaQuery.of(context).size.width, //cała szerokość ekranu
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
-                )),
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisSize: MainAxisSize.max,
-              //  mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  padding: const EdgeInsets.only(right: 300),
-                  child: const Image(
-                    image: AssetImage('assets/images/quote.png'),
-                    height: 30,
-                    width: 30,
-                    color: Colors.white,
-                    alignment: Alignment.topLeft,
-                  ),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Text(
-                  'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.ubuntu(
-                      textStyle: const TextStyle(color: Colors.white, fontSize: 20)),
-                  // style: TextStyle(
-                  //     fontSize: 20,
-                  //     color: Colors.white,
-                  //     // fontFamily: 'Ubuntu-Regular',
-                  //     fontFamily: 'Ubuntu-Medium',
-                  //     fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Center(
-                  child: Text(
-                    'Benjamin Franklin',
-                    style: GoogleFonts.ubuntu(
-                        textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                )
-              ],
-            ),
-          ),
+          QuoteWidget(
+              "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+              "Benjamin Franklin"),
         ],
       ),
     );
