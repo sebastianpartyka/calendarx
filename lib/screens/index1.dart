@@ -1,3 +1,4 @@
+import 'package:calendarx/model/quote_model.dart';
 import 'package:calendarx/widgets/quote_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
@@ -7,6 +8,8 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 // class UserMetadata {
 //   // ignore: public_member_api_docs
@@ -60,6 +63,8 @@ final creationTime = FirebaseAuth.instance.currentUser?.metadata.creationTime;
 final lastSignInTime =
     FirebaseAuth.instance.currentUser?.metadata.lastSignInTime;
 
+var apiURL = "https://type.fit/api/quotes";
+
 // DateTime dateToday =
 //     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
@@ -68,6 +73,37 @@ final lastSignInTime =
 // }
 
 class _Index1State extends State<Index1> {
+  late String text;
+  late String author;
+  String? stringResponse;
+  List? listResponse;
+  Map? mapResponse;
+
+  Future fetchData() async {
+    http.Response response;
+    response = await http.get(Uri.parse("https://type.fit/api/quotes"));
+    if (response.statusCode == 200) {
+      print(response.body);
+      // setState(() {
+      //   mapResponse = json.decode(response.body);
+      // });
+    }
+  }
+  // Future<List<QuoteModel>> getPost() async {
+  //   final response = await http.get('$apiURL');
+  //   return postFromJson(response.body);
+  // }
+
+  // <List<QuoteModel> postFromJson(String str) {
+  //   final jsonData = json.decode(str);
+  //   return StateData.fromJson(jsonData);
+  // }
+  @override
+  void initState() {
+    fetchData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,7 +161,8 @@ class _Index1State extends State<Index1> {
             height: 30,
           ),
           QuoteWidget(
-              "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+              mapResponse.toString(),
+              // "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
               "Benjamin Franklin"),
         ],
       ),

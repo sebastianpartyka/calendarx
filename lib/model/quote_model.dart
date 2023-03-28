@@ -16,3 +16,6 @@ class QuoteModel {
     return data;
   }
 }
+
+
+//https://type.fit/api/quotes

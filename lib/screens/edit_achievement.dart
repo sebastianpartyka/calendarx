@@ -37,11 +37,12 @@ class _EditAchievementState extends State<EditAchievement> {
   late TextEditingController _ctrresult;
   late TextEditingController _ctrlocation;
   late TextEditingController _ctrdescription;
+  var _selectedDate;
 
   @override
   void initState() {
     super.initState();
-    //   _selectedDate = widget.event.date;
+    _selectedDate = widget.document['date'] as Timestamp;
     _ctreventname = TextEditingController(text: widget.document['eventname']);
     _ctrresult = TextEditingController(text: widget.document['result']);
     _ctrlocation = TextEditingController(text: widget.document['location']);
@@ -118,7 +119,7 @@ class _EditAchievementState extends State<EditAchievement> {
                 /////////
                 FormBuilderDateTimePicker(
                   name: "date",
-                  initialValue: DateTime.now(),
+                  initialValue: _selectedDate.toDate(),
                   // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
                   initialDate: DateTime.now(),
                   fieldHintText: "Edit Date",
@@ -131,21 +132,27 @@ class _EditAchievementState extends State<EditAchievement> {
                         borderRadius: BorderRadius.circular(20)),
                     prefixIcon: const Icon(Icons.calendar_today_rounded),
                   ),
+                  onChanged: (val) => {
+                    //  print(val);
+                    setState(() {
+                      _selectedDate = val;
+                    })
+                  },
                   // onChanged: ((val) => (_selectedDate) {
                   //       print(_selectedDate);
                   //       setState(() {
                   //         _selectedDate = val;
                   //       });
                   //     }),
-                  //     onChanged: (val) { _addAchievement(val); }
+                  //     onChanged: (val) { _editAchievement(val); }
 
                   // (val) {
-                  //   _addAchievement();
+                  //   _editAchievement();
                   // }
 
                   // (val) {
                   // print(val);
-                  // _addAchievement(val);
+                  // _editAchievement(val);
                   // },
                 ),
               ],
@@ -186,7 +193,7 @@ class _EditAchievementState extends State<EditAchievement> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.blue)))),
             onPressed: () {
-              _addAchievement();
+              _editAchievement();
               // print _dateTime;
             },
             child: const Text("Save"),
@@ -196,7 +203,7 @@ class _EditAchievementState extends State<EditAchievement> {
     );
   }
 
-  void _addAchievement() async {
+  void _editAchievement() async {
     final eventname = _ctreventname.text;
     final result = _ctrresult.text;
     // final _ctrdate = TextEditingController();
@@ -222,7 +229,7 @@ class _EditAchievementState extends State<EditAchievement> {
       "result": result,
       "location": location,
       "description": description,
-      //  "date": Timestamp.fromDate(selectedDate),
+      "date": Timestamp.fromDate(_selectedDate),
     });
     if (mounted) {
       Navigator.pop<bool>(context, true);
