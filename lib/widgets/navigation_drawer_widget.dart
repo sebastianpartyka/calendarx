@@ -3,6 +3,7 @@ import 'package:calendarx/screens/achievements.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/screens/home_page.dart';
 import 'package:calendarx/screens/index1.dart';
+import 'package:calendarx/screens/routines.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:kalendar2/DemoAppDisplayEvent/DemoApp.dart';
@@ -83,6 +84,12 @@ class NavigationDrawerWidget extends StatelessWidget {
               icon: Icons.checklist_rounded,
               onClicked: () => selectedItem(context, 3),
             ),
+
+            buildMenuItem(
+              text: 'Routines',
+              icon: Icons.text_snippet_outlined,
+              onClicked: () => selectedItem(context, 5),
+            ),
             //const SizedBox(height: 16),
 
             //const SizedBox(height: 16),
@@ -126,11 +133,11 @@ class NavigationDrawerWidget extends StatelessWidget {
               onClicked: () => selectedItem(context, 4),
             ),
             //const SizedBox(height: 10),
-            buildMenuItem(
-              text: 'About',
-              icon: Icons.info_rounded,
-              onClicked: () => selectedItem(context, 12),
-            ),
+            // buildMenuItem(
+            //   text: 'About',
+            //   icon: Icons.info_rounded,
+            //   onClicked: () => selectedItem(context, 12),
+            // ),
             const SizedBox(height: 200),
             buildMenuItem(
               text: 'Log out',
@@ -244,9 +251,9 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
 
       case 5:
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => Calendar(),
-        // ));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const Routines(),
+        ));
         break;
 
       case 6:
