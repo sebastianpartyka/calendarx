@@ -1,3 +1,4 @@
+import 'package:calendarx/screens/routines/FBWa.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -27,143 +28,50 @@ class _RoutinesState extends State<Routines> {
         body: GridView.count(
           crossAxisCount: 2,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'FBW A',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const Fbwa(),
                   ),
-                ),
+                );
+              },
+              child: NewRoutine(
+                child: 'FBW A',
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'FBW B',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            NewRoutine(
+              child: 'FBW B',
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'Push',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            NewRoutine(
+              child: 'Push',
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'Pull',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            NewRoutine(
+              child: 'Pull',
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'Legs 1',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            NewRoutine(
+              child: 'Legs 1',
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: const Text(
-                    'Legs 2',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            NewRoutine(
+              child: 'Legs 2',
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-              ),
+            NewRoutine(
+              child: '',
             ),
+            NewRoutine(
+              child: '',
+            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: Container(
+            //     height: 50,
+            //     width: 50,
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(20),
+            //       color: Colors.blue,
+            //     ),
+            //   ),
+            // ),
           ],
         )
 
@@ -181,5 +89,61 @@ class _RoutinesState extends State<Routines> {
         // ),
 
         );
+  }
+}
+
+class NewRoutine extends StatelessWidget {
+  const NewRoutine({
+    super.key,
+    required this.child,
+    this.image,
+  });
+
+  final String child;
+  final String? image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.blue,
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  (child),
+                  style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              Positioned(
+                bottom: 10,
+                right: 20,
+                height: 90,
+                width: 90,
+                child: Image.asset(
+                  'assets/images/hantelTransparent.png',
+                  fit: BoxFit.cover,
+                  height: 20,
+                ),
+              ),
+            ],
+          ),
+          // SizedBox(
+          //   child: Image.asset('assets/images/hantelTransparent.png'),
+          // )
+        ),
+      ),
+    );
   }
 }

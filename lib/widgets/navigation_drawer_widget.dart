@@ -32,119 +32,123 @@ class NavigationDrawerWidget extends StatelessWidget {
     //https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png
     //https://www.seekpng.com/png/detail/72-729700_account-avatar-face-head-person-profile-user-comments.png
 
-    return Drawer(
-      child: Material(
-        color: const Color.fromRGBO(50, 75, 205, 1),
-        child: ListView(
-          padding: padding,
-          children: <Widget>[
-            buildHeader(
-              //  urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const UserProfile(),
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(20.0), bottomRight: Radius.circular(20.0)),
+      child: Drawer(
+        child: Material(
+          color: const Color.fromRGBO(50, 75, 205, 1),
+          child: ListView(
+            padding: padding,
+            children: <Widget>[
+              buildHeader(
+                //  urlImage: urlImage,
+                name: name,
+                email: email,
+                onClicked: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const UserProfile(),
+                  ),
                 ),
               ),
-            ),
-            //const SizedBox(height: 10),
-            buildMenuItem(
-              text: 'Index',
-              icon: Icons.home,
-              onClicked: () => selectedItem(context, 0),
-            ),
-            //const SizedBox(height: 10),
-            buildMenuItem(
-              text: 'Calendar',
-              icon: Icons.calendar_month_rounded,
-              onClicked: () => selectedItem(context, 1),
-            ),
-            //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'Equipment (Shoes/bikes)',
-            //   icon: Icons.inventory_2_outlined,
-            //   onClicked: () => selectedItem(context, 2),
-            // ),
-            //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'Routes / Training presets',
-            //   icon: Icons.route,
-            //   onClicked: () => selectedItem(context, 3),
-            // ),
-            //const SizedBox(height: 10),
-            buildMenuItem(
-              text: 'Goals',
-              icon: Icons.radar_rounded,
-              onClicked: () => selectedItem(context, 2),
-            ),
+              //const SizedBox(height: 10),
+              buildMenuItem(
+                text: 'Index',
+                icon: Icons.home,
+                onClicked: () => selectedItem(context, 0),
+              ),
+              //const SizedBox(height: 10),
+              buildMenuItem(
+                text: 'Calendar',
+                icon: Icons.calendar_month_rounded,
+                onClicked: () => selectedItem(context, 1),
+              ),
+              //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'Equipment (Shoes/bikes)',
+              //   icon: Icons.inventory_2_outlined,
+              //   onClicked: () => selectedItem(context, 2),
+              // ),
+              //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'Routes / Training presets',
+              //   icon: Icons.route,
+              //   onClicked: () => selectedItem(context, 3),
+              // ),
+              //const SizedBox(height: 10),
+              buildMenuItem(
+                text: 'Goals',
+                icon: Icons.radar_rounded,
+                onClicked: () => selectedItem(context, 2),
+              ),
 
-            buildMenuItem(
-              text: 'Achievements / records',
-              icon: Icons.checklist_rounded,
-              onClicked: () => selectedItem(context, 3),
-            ),
+              buildMenuItem(
+                text: 'Achievements / records',
+                icon: Icons.checklist_rounded,
+                onClicked: () => selectedItem(context, 3),
+              ),
 
-            buildMenuItem(
-              text: 'Routines',
-              icon: Icons.text_snippet_outlined,
-              onClicked: () => selectedItem(context, 5),
-            ),
-            //const SizedBox(height: 16),
+              buildMenuItem(
+                text: 'Routines',
+                icon: Icons.text_snippet_outlined,
+                onClicked: () => selectedItem(context, 5),
+              ),
+              //const SizedBox(height: 16),
 
-            //const SizedBox(height: 16),
-            // buildMenuItem(
-            //   text: 'Stats',
-            //   icon: Icons.query_stats_rounded,
-            //   onClicked: () => selectedItem(context, 6),
-            // ),
-            //const SizedBox(height: 16),
-            Divider(thickness: 2, color: Colors.white),
-            //const SizedBox(height: 16),
-            // buildMenuItem(
-            //   text: 'Calculators',
-            //   icon: Icons.calculate_rounded,
-            //   onClicked: () => selectedItem(context, 7),
-            // ),
-            // //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'Data export',
-            //   icon: Icons.import_export_outlined,
-            //   onClicked: () => selectedItem(context, 8),
-            // ),
-            // //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'Community (list of users)',
-            //   icon: Icons.people,
-            //   onClicked: () => selectedItem(context, 9),
-            // ),
-            // //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'Favorites / following',
-            //   icon: Icons.workspaces_outline,
-            //   onClicked: () => selectedItem(context, 10),
-            // ),
-            //const SizedBox(height: 16),
-            // Divider(thickness: 2, color: Colors.white),
-            //const SizedBox(height: 16),
-            buildMenuItem(
-              text: 'Profile',
-              icon: Icons.person,
-              onClicked: () => selectedItem(context, 4),
-            ),
-            //const SizedBox(height: 10),
-            // buildMenuItem(
-            //   text: 'About',
-            //   icon: Icons.info_rounded,
-            //   onClicked: () => selectedItem(context, 12),
-            // ),
-            const SizedBox(height: 200),
-            buildMenuItem(
-              text: 'Log out',
-              icon: Icons.logout_outlined,
-              onClicked: () => selectedItem(context, 13),
-            ),
-          ],
+              //const SizedBox(height: 16),
+              // buildMenuItem(
+              //   text: 'Stats',
+              //   icon: Icons.query_stats_rounded,
+              //   onClicked: () => selectedItem(context, 6),
+              // ),
+              //const SizedBox(height: 16),
+              Divider(thickness: 2, color: Colors.white),
+              //const SizedBox(height: 16),
+              // buildMenuItem(
+              //   text: 'Calculators',
+              //   icon: Icons.calculate_rounded,
+              //   onClicked: () => selectedItem(context, 7),
+              // ),
+              // //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'Data export',
+              //   icon: Icons.import_export_outlined,
+              //   onClicked: () => selectedItem(context, 8),
+              // ),
+              // //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'Community (list of users)',
+              //   icon: Icons.people,
+              //   onClicked: () => selectedItem(context, 9),
+              // ),
+              // //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'Favorites / following',
+              //   icon: Icons.workspaces_outline,
+              //   onClicked: () => selectedItem(context, 10),
+              // ),
+              //const SizedBox(height: 16),
+              // Divider(thickness: 2, color: Colors.white),
+              //const SizedBox(height: 16),
+              buildMenuItem(
+                text: 'Profile',
+                icon: Icons.person,
+                onClicked: () => selectedItem(context, 4),
+              ),
+              //const SizedBox(height: 10),
+              // buildMenuItem(
+              //   text: 'About',
+              //   icon: Icons.info_rounded,
+              //   onClicked: () => selectedItem(context, 12),
+              // ),
+              const SizedBox(height: 200),
+              buildMenuItem(
+                text: 'Log out',
+                icon: Icons.logout_outlined,
+                onClicked: () => selectedItem(context, 13),
+              ),
+            ],
+          ),
         ),
       ),
     );
