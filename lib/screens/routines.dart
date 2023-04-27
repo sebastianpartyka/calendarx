@@ -1,4 +1,6 @@
 import 'package:calendarx/screens/routines/FBWa.dart';
+import 'package:calendarx/screens/routines/fbwb.dart';
+import 'package:calendarx/screens/routines/push.dart';
 import 'package:flutter/material.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -28,24 +30,9 @@ class _RoutinesState extends State<Routines> {
         body: GridView.count(
           crossAxisCount: 2,
           children: [
-            InkWell(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const Fbwa(),
-                  ),
-                );
-              },
-              child: NewRoutine(
-                child: 'FBW A',
-              ),
-            ),
-            NewRoutine(
-              child: 'FBW B',
-            ),
-            NewRoutine(
-              child: 'Push',
-            ),
+            RoutineTile(Fbwa(), 'FBW A'),
+            RoutineTile(Fbwb(), 'FBW B'),
+            RoutineTile(Push(), 'Push'),
             NewRoutine(
               child: 'Pull',
             ),
@@ -92,6 +79,36 @@ class _RoutinesState extends State<Routines> {
   }
 }
 
+class RoutineTile extends StatelessWidget {
+  const RoutineTile(
+    this.link1,
+    this.title, {
+    super.key,
+  });
+
+  // ignore: prefer_typing_uninitialized_variables
+  final link1;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      highlightColor: Colors.transparent,
+      splashColor: const Color.fromRGBO(50, 75, 205, 1),
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => link1,
+          ),
+        );
+      },
+      child: NewRoutine(
+        child: title,
+      ),
+    );
+  }
+}
+
 class NewRoutine extends StatelessWidget {
   const NewRoutine({
     super.key,
@@ -107,7 +124,7 @@ class NewRoutine extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Container(
+        child: Ink(
           height: 50,
           width: 50,
           decoration: BoxDecoration(
@@ -134,7 +151,7 @@ class NewRoutine extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/hantelTransparent.png',
                   fit: BoxFit.cover,
-                  height: 20,
+                  height: 30,
                 ),
               ),
             ],

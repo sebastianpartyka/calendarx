@@ -1,5 +1,5 @@
 import 'dart:collection';
-
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:calendarx/features/auth/pages/user_profile.dart';
 import 'package:calendarx/screens/goals.dart';
 import 'package:calendarx/screens/index1.dart';
@@ -15,6 +15,7 @@ import 'package:calendarx/model/event.dart';
 import 'package:calendarx/widgets/event_item.dart';
 //import '../widgets/event_item.dart';
 import 'add_event.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

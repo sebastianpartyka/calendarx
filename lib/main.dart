@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 
 import './firebase_options.dart';
 import 'screens/home_page.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  //     overlays: []); // remove status bar
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.blue, // transparent status bar
+  ));
   runApp(const MyApp());
 }
 

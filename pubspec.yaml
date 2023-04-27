@@ -52,6 +52,8 @@ dependencies:
   google_fonts: ^4.0.3
   http: ^0.13.5
   dio: ^5.0.3
+  youtube_player_flutter: ^8.1.0
+  colorful_safe_area: ^1.0.0
 
 dependency_overrides:
   intl: ^0.17.0-nullsafety.2
@@ -83,6 +85,8 @@ flutter:
     - assets/images/quote.png
     - assets/images/profile.png
     - assets/images/hantelTransparent.png
+    - assets/images/FBW1t.png
+    - assets/images/FBW2t.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
