@@ -1,10 +1,11 @@
 import 'package:calendarx/screens/routines/FBWa.dart';
 import 'package:calendarx/screens/routines/fbwb.dart';
 import 'package:calendarx/screens/routines/push.dart';
+import 'package:calendarx/screens/routines/pull.dart';
+import 'package:calendarx/screens/routines/push2.dart';
+import 'package:calendarx/screens/routines/pull2.dart';
+import 'package:calendarx/screens/routines/legs.dart';
 import 'package:flutter/material.dart';
-import 'package:calendarx/widgets/bottom_app_bar.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Routines extends StatefulWidget {
   const Routines({super.key});
@@ -29,24 +30,28 @@ class _RoutinesState extends State<Routines> {
         //bottomNavigationBar: const BottomNavBar(),
         body: GridView.count(
           crossAxisCount: 2,
-          children: [
+          children: const [
             RoutineTile(Fbwa(), 'FBW A'),
             RoutineTile(Fbwb(), 'FBW B'),
-            RoutineTile(Push(), 'Push'),
-            NewRoutine(
-              child: 'Pull',
-            ),
-            NewRoutine(
-              child: 'Legs 1',
-            ),
+            RoutineTile(Push(), 'Push 1'),
+            RoutineTile(Pull(), 'Pull 1'),
+            RoutineTile(Push2(), 'Push 2'),
+            RoutineTile(Pull2(), 'Pull 2'),
+            RoutineTile(Legs(), 'Legs 1'),
             NewRoutine(
               child: 'Legs 2',
             ),
             NewRoutine(
-              child: '',
+              child: 'Legs 3',
             ),
             NewRoutine(
-              child: '',
+              child: 'ABS',
+            ),
+            NewRoutine(
+              child: 'Forearms',
+            ),
+            NewRoutine(
+              child: 'Calves & Shins',
             ),
             // Padding(
             //   padding: const EdgeInsets.all(10.0),
@@ -61,7 +66,6 @@ class _RoutinesState extends State<Routines> {
             // ),
           ],
         )
-
         // Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
         //   const SizedBox(
         //     height: 20,

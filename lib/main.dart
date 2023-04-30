@@ -11,9 +11,11 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
   //     overlays: []); // remove status bar
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.blue, // transparent status bar
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //   statusBarColor: Colors.blue, // transparent status bar
+  // ));
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top]); //hide bottom bar (include the top)
   runApp(const MyApp());
 }
 

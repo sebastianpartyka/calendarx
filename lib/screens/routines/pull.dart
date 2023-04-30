@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class Push extends StatefulWidget {
-  const Push({super.key});
+class Pull extends StatefulWidget {
+  const Pull({super.key});
 
   @override
-  State<Push> createState() => _PushState();
+  State<Pull> createState() => _PullState();
 }
 
-class _PushState extends State<Push> {
+class _PullState extends State<Pull> {
   final _controller = YoutubePlayerController(
-    initialVideoId: 'QeiGE6mnaiY',
+    initialVideoId: 'KymvndAW4CU',
     flags: const YoutubePlayerFlags(
       autoPlay: false,
       loop: false,
@@ -39,7 +39,7 @@ class _PushState extends State<Push> {
         builder: (context, player) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Push 1:'),
+              title: const Text('Pull 1:'),
               centerTitle: true,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -66,7 +66,7 @@ class _PushState extends State<Push> {
                           child: Positioned(
                             left: 10,
                             child: Image.asset(
-                              'assets/images/Push2t.png',
+                              'assets/images/Pull2t.png', //obrazek do podmiany
                               height: 270,
                               //width: 200,
                             ),
@@ -77,7 +77,7 @@ class _PushState extends State<Push> {
                         left: 9,
                         top: 7,
                         child: Image.asset(
-                          'assets/images/Push1t.png',
+                          'assets/images/Pull1t.png', //obrazek do podmiany
                           height: 270,
                         ),
                       ),
@@ -85,7 +85,7 @@ class _PushState extends State<Push> {
                         right: 15,
                         bottom: 20,
                         child: Text(
-                          'Push Workout\nroutine 1',
+                          'Pull Workout\nroutine 1',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -96,7 +96,7 @@ class _PushState extends State<Push> {
                     ],
                   ),
                   const Text(
-                    'Push Workout Routine 1',
+                    'Pull Workout Routine 1',
                     style: TextStyle(fontSize: 25),
                   ),
                   const SizedBox(
@@ -125,9 +125,20 @@ class _PushState extends State<Push> {
                             color: Colors.blueAccent,
                           ),
                           children: [
-                            ExerciseEntry('Bench Press'),
+                            ExerciseEntry('Lower/Middle Trapezius Raises'),
+                            ExerciseEntry('2'),
+                            ExerciseEntry('12'),
+                            ExerciseEntry('1'),
+                          ],
+                        ),
+                        TableRow(
+                          decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                          ),
+                          children: [
+                            ExerciseEntry('Pull-Ups'),
                             ExerciseEntry('3 / 4'),
-                            ExerciseEntry('8-10 / 6-8'),
+                            ExerciseEntry('8-12 / 6-10'),
                             ExerciseEntry('2-3'),
                           ],
                         ),
@@ -136,8 +147,31 @@ class _PushState extends State<Push> {
                             color: Colors.blueAccent,
                           ),
                           children: [
-                            ExerciseEntry('Low Cable Chest Fly'),
-                            ExerciseEntry('4'),
+                            ExerciseEntry('Wide Barbell Row'),
+                            ExerciseEntry('3 / 4'),
+                            ExerciseEntry('8-12'),
+                            ExerciseEntry('2-3'),
+                          ],
+                        ),
+                        TableRow(
+                          decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                          ),
+                          children: [
+                            ExerciseEntry(
+                                'Lying Overhead Dumbbell Tricep Pullover'),
+                            ExerciseEntry('3 / 4'),
+                            ExerciseEntry('8-12'),
+                            ExerciseEntry('2-3'),
+                          ],
+                        ),
+                        TableRow(
+                          decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                          ),
+                          children: [
+                            ExerciseEntry('Dumbbell Lateral Raises'),
+                            ExerciseEntry('3'),
                             ExerciseEntry('12-16'),
                             ExerciseEntry('2-3'),
                           ],
@@ -147,42 +181,9 @@ class _PushState extends State<Push> {
                             color: Colors.blueAccent,
                           ),
                           children: [
-                            ExerciseEntry('Seated Dumbbell Overhead Press'),
-                            ExerciseEntry('3 / 4'),
-                            ExerciseEntry('6-8'),
-                            ExerciseEntry('1 min rest between legs'),
-                          ],
-                        ),
-                        TableRow(
-                          decoration: BoxDecoration(
-                            color: Colors.blueAccent,
-                          ),
-                          children: [
-                            ExerciseEntry('Poliquin Lateral Raises'),
-                            ExerciseEntry('3 / 4'),
-                            ExerciseEntry('12-16'),
-                            ExerciseEntry('2-3'),
-                          ],
-                        ),
-                        TableRow(
-                          decoration: BoxDecoration(
-                            color: Colors.blueAccent,
-                          ),
-                          children: [
-                            ExerciseEntry('Lying French Dumbbell Press'),
+                            ExerciseEntry('Standing Biceps Barbell Curls'),
                             ExerciseEntry('3'),
-                            ExerciseEntry('8'),
-                            ExerciseEntry('2-3'),
-                          ],
-                        ),
-                        TableRow(
-                          decoration: BoxDecoration(
-                            color: Colors.blueAccent,
-                          ),
-                          children: [
-                            ExerciseEntry('Tricep Cable Extension'),
-                            ExerciseEntry('3'),
-                            ExerciseEntry('15-20'),
+                            ExerciseEntry('10-15'),
                             ExerciseEntry('1.5-2'),
                           ],
                         ),
@@ -191,10 +192,21 @@ class _PushState extends State<Push> {
                             color: Colors.blueAccent,
                           ),
                           children: [
-                            ExerciseEntry('Russian Twist'),
+                            ExerciseEntry('Incline Bench Bicep Curls'),
                             ExerciseEntry('3'),
-                            ExerciseEntry('15-20'),
-                            ExerciseEntry('1.5-2'),
+                            ExerciseEntry('8-12'),
+                            ExerciseEntry('2'),
+                          ],
+                        ),
+                        TableRow(
+                          decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                          ),
+                          children: [
+                            ExerciseEntry('Highbar Hanging Leg Raises'),
+                            ExerciseEntry('3'),
+                            ExerciseEntry('8-12'),
+                            ExerciseEntry('2'),
                           ],
                         ),
                       ],

@@ -88,9 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       drawer: NavigationDrawerWidget(),
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.blue,
-        ),
+        // systemOverlayStyle: const SystemUiOverlayStyle(
+        //   statusBarColor: Colors.blue,
+        // ),
         title: const Text('Training Log'),
         centerTitle: true,
         shape: const RoundedRectangleBorder(
