@@ -1,10 +1,13 @@
 import 'package:calendarx/screens/routines/FBWa.dart';
+import 'package:calendarx/screens/routines/abs.dart';
 import 'package:calendarx/screens/routines/fbwb.dart';
+import 'package:calendarx/screens/routines/legs3.dart';
 import 'package:calendarx/screens/routines/push.dart';
 import 'package:calendarx/screens/routines/pull.dart';
 import 'package:calendarx/screens/routines/push2.dart';
 import 'package:calendarx/screens/routines/pull2.dart';
 import 'package:calendarx/screens/routines/legs.dart';
+import 'package:calendarx/screens/routines/legs2.dart';
 import 'package:flutter/material.dart';
 
 class Routines extends StatefulWidget {
@@ -38,15 +41,10 @@ class _RoutinesState extends State<Routines> {
             RoutineTile(Push2(), 'Push 2'),
             RoutineTile(Pull2(), 'Pull 2'),
             RoutineTile(Legs(), 'Legs 1'),
-            NewRoutine(
-              child: 'Legs 2',
-            ),
-            NewRoutine(
-              child: 'Legs 3',
-            ),
-            NewRoutine(
-              child: 'ABS',
-            ),
+            RoutineTile(Legs2(), 'Legs 2'),
+            RoutineTile(Legs3(), 'Legs 3'),
+            RoutineTile(Abs(), 'ABS'),
+
             NewRoutine(
               child: 'Forearms',
             ),
