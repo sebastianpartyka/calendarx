@@ -66,7 +66,7 @@ class _LegsState extends State<Legs> {
                           child: Positioned(
                             left: 10,
                             child: Image.asset(
-                              'assets/images/Push2t.png',
+                              'assets/images/Legs2t.png',
                               height: 270,
                               //width: 200,
                             ),
@@ -77,7 +77,7 @@ class _LegsState extends State<Legs> {
                         left: 9,
                         top: 7,
                         child: Image.asset(
-                          'assets/images/Push1t.png',
+                          'assets/images/Legs1t.png',
                           height: 270,
                         ),
                       ),
