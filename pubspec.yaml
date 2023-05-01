@@ -91,6 +91,8 @@ flutter:
     - assets/images/Push2t.png
     - assets/images/Pull1t.png
     - assets/images/Pull2t.png
+    - assets/images/Legs1t.png
+    - assets/images/Legs2t.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
