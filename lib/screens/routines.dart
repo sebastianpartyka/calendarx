@@ -8,6 +8,8 @@ import 'package:calendarx/screens/routines/push2.dart';
 import 'package:calendarx/screens/routines/pull2.dart';
 import 'package:calendarx/screens/routines/legs.dart';
 import 'package:calendarx/screens/routines/legs2.dart';
+import 'package:calendarx/screens/routines/forearms.dart';
+import 'package:calendarx/screens/routines/calves.dart';
 import 'package:flutter/material.dart';
 
 class Routines extends StatefulWidget {
@@ -44,13 +46,8 @@ class _RoutinesState extends State<Routines> {
             RoutineTile(Legs2(), 'Legs 2'),
             RoutineTile(Legs3(), 'Legs 3'),
             RoutineTile(Abs(), 'ABS'),
-
-            NewRoutine(
-              child: 'Forearms',
-            ),
-            NewRoutine(
-              child: 'Calves & Shins',
-            ),
+            RoutineTile(Forearms(), 'Forearms'),
+            RoutineTile(Calves(), 'Calves & Shins'),
             // Padding(
             //   padding: const EdgeInsets.all(10.0),
             //   child: Container(
