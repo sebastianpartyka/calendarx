@@ -100,7 +100,7 @@ class _CalvesState extends State<Calves> {
                           child: Positioned(
                             left: 10,
                             child: Image.asset(
-                              'assets/images/abs2t.png',
+                              'assets/images/calf2t.png',
                               height: 270,
                               //width: 200,
                             ),
@@ -111,7 +111,7 @@ class _CalvesState extends State<Calves> {
                         left: 9,
                         top: 7,
                         child: Image.asset(
-                          'assets/images/abs1t.png',
+                          'assets/images/calf1t.png',
                           height: 270,
                         ),
                       ),
@@ -119,9 +119,9 @@ class _CalvesState extends State<Calves> {
                         right: 15,
                         bottom: 20,
                         child: Text(
-                          'Calves & Shins Workout\nroutines',
+                          'Calves & Shins\nWorkout routines',
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Ubuntu',
                               color: Colors.white),

@@ -100,7 +100,7 @@ class _ForearmsState extends State<Forearms> {
                           child: Positioned(
                             left: 10,
                             child: Image.asset(
-                              'assets/images/abs2t.png',
+                              'assets/images/forearm2t.png',
                               height: 270,
                               //width: 200,
                             ),
@@ -111,17 +111,17 @@ class _ForearmsState extends State<Forearms> {
                         left: 9,
                         top: 7,
                         child: Image.asset(
-                          'assets/images/abs1t.png',
+                          'assets/images/forearm1t.png',
                           height: 270,
                         ),
                       ),
                       const Positioned(
-                        right: 15,
+                        right: 12,
                         bottom: 20,
                         child: Text(
                           'Forearm Workout\nroutines',
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16.5,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Ubuntu',
                               color: Colors.white),

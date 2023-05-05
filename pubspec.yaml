@@ -95,6 +95,10 @@ flutter:
     - assets/images/Legs2t.png
     - assets/images/abs1t.png
     - assets/images/abs2t.png
+    - assets/images/forearm1t.png
+    - assets/images/forearm2t.png
+    - assets/images/calf1t.png
+    - assets/images/calf2t.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
