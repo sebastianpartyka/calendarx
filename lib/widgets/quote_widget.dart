@@ -21,7 +21,7 @@ class QuoteWidget extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.lightBlue,
+                Colors.blue,
                 // Color.fromRGBO(50, 75, 205, 1),
                 Color.fromARGB(255, 10, 13, 146)
               ]),
