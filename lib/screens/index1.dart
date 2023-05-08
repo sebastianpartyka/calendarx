@@ -10,6 +10,7 @@ import 'package:meta/meta.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:math';
 
 // class UserMetadata {
 //   // ignore: public_member_api_docs
@@ -73,22 +74,55 @@ var apiURL = "https://type.fit/api/quotes";
 // }
 
 class _Index1State extends State<Index1> {
-  late String text;
-  late String author;
+  late String text = '';
+  late String author = '';
   String? stringResponse;
   List? listResponse;
   Map? mapResponse;
 
-  Future fetchData() async {
-    http.Response response;
-    response = await http.get(Uri.parse("https://type.fit/api/quotes"));
+  // Future<Map<String, dynamic>> fetchData() async {
+  //   final response = await http.get(Uri.parse('https://type.fit/api/quotes'));
+  //   if (response.statusCode == 200) {
+  //     final data = jsonDecode(response.body);
+  //     final randomIndex = Random().nextInt(data.length);
+  //     return data[randomIndex];
+  //   } else {
+  //     throw Exception('Failed to fetch data');
+  //   }
+  // }
+
+  Future<void> fetchRandomQuote() async {
+    final response = await http.get(Uri.parse(apiURL));
     if (response.statusCode == 200) {
-      print(response.body);
-      // setState(() {
-      //   mapResponse = json.decode(response.body);
-      // });
+      final List<dynamic> data = jsonDecode(response.body);
+      final randomIndex = Random().nextInt(data.length);
+      final randomQuote = data[randomIndex];
+      setState(() {
+        text = randomQuote['text'];
+        author = randomQuote['author'];
+      });
+    } else {
+      throw Exception('Failed to fetch data');
     }
   }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchRandomQuote();
+  }
+
+  // Future fetchData() async {
+  //   http.Response response;
+  //   response = await http.get(Uri.parse("https://type.fit/api/quotes"));
+  //   if (response.statusCode == 200) {
+  //     print(response.body);
+  //     setState(() {
+  //       mapResponse = json.decode(response.body);
+  //     });
+  //   }
+  // }
+
   // Future<List<QuoteModel>> getPost() async {
   //   final response = await http.get('$apiURL');
   //   return postFromJson(response.body);
@@ -98,11 +132,12 @@ class _Index1State extends State<Index1> {
   //   final jsonData = json.decode(str);
   //   return StateData.fromJson(jsonData);
   // }
-  @override
-  void initState() {
-    fetchData();
-    super.initState();
-  }
+
+  // @override
+  // void initState() {
+  //   fetchData();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -160,10 +195,10 @@ class _Index1State extends State<Index1> {
           const SizedBox(
             height: 30,
           ),
-          QuoteWidget(
-              mapResponse.toString(),
-              // "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
-              "Benjamin Franklin"),
+          QuoteWidget(text, author),
+          //mapResponse.toString(),
+          // "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+          // "Benjamin Franklin"),
         ],
       ),
     );

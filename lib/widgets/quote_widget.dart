@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
+import 'package:calendarx/screens/index1.dart';
 
 class QuoteWidget extends StatelessWidget {
-  var quote = "";
+  var text = "";
   var author = "";
-  QuoteWidget(
-  this.quote, this.author, {super.key}
-  );
+  QuoteWidget(this.text, this.author, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,15 @@ class QuoteWidget extends StatelessWidget {
       //MediaQuery.of(context).size.width, //cała szerokość ekranu
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
-          color: Colors.blue,
+          // color: Colors.blue,
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.lightBlue,
+                // Color.fromRGBO(50, 75, 205, 1),
+                Color.fromARGB(255, 10, 13, 146)
+              ]),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
@@ -46,7 +53,7 @@ class QuoteWidget extends StatelessWidget {
             height: 50,
           ),
           Text(
-           quote,
+            text,
             //'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
             textAlign: TextAlign.center,
             style: GoogleFonts.ubuntu(
@@ -64,7 +71,7 @@ class QuoteWidget extends StatelessWidget {
           Center(
             child: Text(
               author,
-             // 'Benjamin Franklin',
+              // 'Benjamin Franklin',
               style: GoogleFonts.ubuntu(
                   textStyle: const TextStyle(
                       color: Colors.white,
