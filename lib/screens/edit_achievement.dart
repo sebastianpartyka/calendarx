@@ -38,11 +38,12 @@ class _EditAchievementState extends State<EditAchievement> {
   late TextEditingController _ctrlocation;
   late TextEditingController _ctrdescription;
   var _selectedDate;
+  //late DateTime _selectedDate;
 
   @override
   void initState() {
     super.initState();
-    _selectedDate = widget.document['date'] as Timestamp;
+    _selectedDate = widget.document['date'];
     _ctreventname = TextEditingController(text: widget.document['eventname']);
     _ctrresult = TextEditingController(text: widget.document['result']);
     _ctrlocation = TextEditingController(text: widget.document['location']);

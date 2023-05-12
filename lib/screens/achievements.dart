@@ -93,7 +93,6 @@ class StreamBuilderFireAchievement extends StatelessWidget {
 
   //final TextEditingController controller;
   final userID = FirebaseAuth.instance.currentUser?.uid;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +130,7 @@ class StreamBuilderFireAchievement extends StatelessWidget {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (builder) => EditAchievement(
                                           document: document,
-                                       //   eventID: snapshot.data?.docs.id,
+                                          //   eventID: snapshot.data?.docs.id,
                                         )))
                               }),
 
@@ -173,7 +172,16 @@ class StreamBuilderFireAchievement extends StatelessWidget {
                   document['eventname'],
                   document['result'],
                   document['location'],
-                  //              document['date'],
+                  document['date'] ?? "",
+                  // document.data()?.containsKey('date') ? document.data()!['date'] as Timestamp : Timestamp(0, 0),
+                  //  document.data() is Map<String, dynamic> && document.data()!.containsKey('date')
+                  //       ? document.data()!['date'] as Timestamp
+                  //       : Timestamp(0, 0),
+                  // (document.data() as Map<String, dynamic>)
+                  //     .containsKey('date') as Timestamp
+                  // (document.data () as Map<String, dynamic> (document.exists && document.data()!.containsKey('date'))
+                  //     ? document.data()!['date'] as Timestamp
+                  //     : null),
                 ),
               ),
             ],
@@ -204,15 +212,27 @@ class AchievementCard extends StatelessWidget {
     this.eventname,
     this.result,
     this.location,
-    // this.date,
-    {
+    this.date, {
     Key? key,
   }) : super(key: key);
+
+  // String releaseDateFormatted() {
+  //   return DateFormat.yMMMMEEEEd().format(date);
+  // }
+
+  String formattedDate() {
+    if (date != null) {
+      DateTime dateTime = date!.toDate();
+      return DateFormat('dd.MM.yyyy').format(dateTime);
+      //DateFormat.yMMMMEEEEd().format(date);
+    }
+    return '';
+  }
 
   final String eventname;
   final String result;
   final String location;
-  // final DateTime date;
+  final Timestamp? date;
 
 // final   String? description;
 // final   String id;
@@ -246,8 +266,8 @@ class AchievementCard extends StatelessWidget {
                   children: [
                     Text(
                       (eventname),
-                      style:
-                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     const SizedBox(
                       width: 20,
@@ -266,10 +286,11 @@ class AchievementCard extends StatelessWidget {
                 (location),
                 style: const TextStyle(fontSize: 16),
               ),
-              trailing: const Text(
-                // (date),
-                ('20.02.2022'),
-                style: TextStyle(fontSize: 15),
+              trailing: Text(
+                //(date.toString()),
+                formattedDate(),
+                // ('20.02.2022'),
+                style: const TextStyle(fontSize: 15),
               )),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.end,
