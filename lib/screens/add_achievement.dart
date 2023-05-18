@@ -91,15 +91,15 @@ class _AddAchievementState extends State<AddAchievement> {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(vertical: 10),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(20)),
                     prefixIcon: const Icon(Icons.calendar_today_rounded),
                   ),
-                  onChanged: (val) =>  {
-                      //  print(val);
-                        setState(() {
-                          _selectedDate = val;
-                        })
-                      },
+                  onChanged: (val) => {
+                    //  print(val);
+                    setState(() {
+                      _selectedDate = val;
+                    })
+                  },
                   // onChanged:
                   //  (val) { _addAchievement(val); }
 

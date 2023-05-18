@@ -56,7 +56,7 @@ class _EditAchievementState extends State<EditAchievement> {
   // final _ctrlocation = TextEditingController();
   // final _ctrdescription = TextEditingController();
 
-  // var _selectedDate;
+  //var _selectedDate;
   // DateTime _dateTime = DateTime.now();
   // late final _selectedDate;
 
@@ -109,7 +109,7 @@ class _EditAchievementState extends State<EditAchievement> {
           //       setState(() {
           //  //       _selectedDate = date;
           //       });
-          //     },
+          //     },s
           //   ),
           // ),
           Padding(
@@ -210,7 +210,7 @@ class _EditAchievementState extends State<EditAchievement> {
     // final _ctrdate = TextEditingController();
     final location = _ctrlocation.text;
     final description = _ctrdescription.text;
-    // final date = _selectedDate;
+    final date = _selectedDate.toDate();
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -230,7 +230,7 @@ class _EditAchievementState extends State<EditAchievement> {
       "result": result,
       "location": location,
       "description": description,
-      "date": Timestamp.fromDate(_selectedDate),
+      "date": date, //Timestamp.fromDate(date),
     });
     if (mounted) {
       Navigator.pop<bool>(context, true);
