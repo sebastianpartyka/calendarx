@@ -54,6 +54,12 @@ dependencies:
   dio: ^5.0.3
   youtube_player_flutter: ^8.1.0
   colorful_safe_area: ^1.0.0
+  flutter_native_splash: ^2.2.19
+
+flutter_native_splash:
+
+  background_image: "assets/images/backgroundb.png"
+  image: "assets/images/splashm.png"
 
 dependency_overrides:
   intl: ^0.17.0-nullsafety.2
