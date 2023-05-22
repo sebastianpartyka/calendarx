@@ -37,7 +37,7 @@ class _EditAchievementState extends State<EditAchievement> {
   late TextEditingController _ctrresult;
   late TextEditingController _ctrlocation;
   late TextEditingController _ctrdescription;
-  var _selectedDate;
+  dynamic _selectedDate;
   //late DateTime _selectedDate;
 
   @override
@@ -120,7 +120,10 @@ class _EditAchievementState extends State<EditAchievement> {
                 /////////
                 FormBuilderDateTimePicker(
                   name: "date",
-                  initialValue: _selectedDate.toDate(),
+                  initialValue: _selectedDate is Timestamp
+                      ? _selectedDate.toDate()
+                      : _selectedDate,
+
                   // widget.selectedDate ?? widget.event?.date ?? DateTime.now(),
                   initialDate: DateTime.now(),
                   fieldHintText: "Edit Date",
@@ -210,7 +213,7 @@ class _EditAchievementState extends State<EditAchievement> {
     // final _ctrdate = TextEditingController();
     final location = _ctrlocation.text;
     final description = _ctrdescription.text;
-    final date = _selectedDate.toDate();
+    final date = _selectedDate;
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
