@@ -16,6 +16,11 @@ void main() async {
   // ));
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.top]); //hide bottom bar (include the top)
+
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+  //   SystemUiOverlay.bottom,
+  //   SystemUiOverlay.top
+  // ]); //pokazanie na nowo paska na górze w iOS
   runApp(const MyApp());
 }
 
