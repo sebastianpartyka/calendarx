@@ -51,7 +51,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              //const SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildMenuItem(
                 text: 'Index',
                 icon: Icons.home,
@@ -141,7 +141,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               //   icon: Icons.info_rounded,
               //   onClicked: () => selectedItem(context, 12),
               // ),
-              const SizedBox(height: 200),
+              const SizedBox(height: 165),
               buildMenuItem(
                 text: 'Log out',
                 icon: Icons.logout_outlined,
@@ -163,14 +163,20 @@ class NavigationDrawerWidget extends StatelessWidget {
       InkWell(
         onTap: onClicked,
         child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+          padding: const EdgeInsets.only(top: 70.0),
+          // padding.add(EdgeInsets.symmetric(vertical: 40)),
           child: Row(
             children: [
-              CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage('assets/images/profile.png')
-                  //NetworkImage(urlImage),
-                  ),
+              Image.asset(
+                'assets/images/logo2.png', // Replace with your image path
+                width: 120, // Adjust the width as per your requirements
+                height: 120, // Adjust the height as per your requirements
+              ),
+              // CircleAvatar(
+              //     radius: 40,
+              //     backgroundImage: AssetImage('assets/images/logo2.png')
+              //     //NetworkImage(urlImage),
+              //     ),
               SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
