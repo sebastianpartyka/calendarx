@@ -1,7 +1,7 @@
 import 'dart:collection';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:calendarx/features/auth/pages/user_profile.dart';
-import 'package:calendarx/screens/goals.dart';
+import 'package:calendarx/screens/goals/goals.dart';
 import 'package:calendarx/screens/index1.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:calendarx/widgets/navigation_drawer_widget.dart';

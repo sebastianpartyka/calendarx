@@ -1,5 +1,5 @@
 import 'package:calendarx/features/auth/pages/user_profile.dart';
-import 'package:calendarx/screens/goals.dart';
+import 'package:calendarx/screens/goals/goals.dart';
 import 'package:calendarx/screens/home_page.dart';
 import 'package:calendarx/screens/index1.dart';
 import 'package:flutter/material.dart';
