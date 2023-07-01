@@ -118,61 +118,61 @@ class StreamBuilderFire extends StatelessWidget {
             ],
           );
 
-          return StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection(
-                    'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
-                .doc(userID)
-                .collection('categories')
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return const Text('Unexpected error has occurred');
-              }
+          // return StreamBuilder<QuerySnapshot>(
+          //   stream: FirebaseFirestore.instance
+          //       .collection(
+          //           'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+          //       .doc(userID)
+          //       .collection('categories')
+          //       .snapshots(),
+          //   builder: (context, snapshot) {
+          //     if (snapshot.hasError) {
+          //       return const Text('Unexpected error has occurred');
+          //     }
 
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Text('Please wait, loading the data');
-              }
+          //     if (snapshot.connectionState == ConnectionState.waiting) {
+          //       return const Text('Please wait, loading the data');
+          //     }
 
-              final documents = snapshot.data!.docs;
+          //     final documents = snapshot.data!.docs;
 
-              return ListView(
-                children: [
-                  const SizedBox(height: 10),
-                  for (final document in documents) ...[
-                    Dismissible(
-                        key: ValueKey(document.id),
-                        onDismissed: (_) {
-                          FirebaseFirestore.instance
-                              .collection(
-                                  'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
-                              .doc(userID)
-                              .collection('categories')
-                              .doc(document.id)
-                              .delete();
-                        },
-                        child: CategoryWidget(document['title'])),
-                  ],
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                    child: TextField(
-                      controller: controller,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      maxLines: null,
-                    ),
-                  ),
-                ],
-              );
-            },
-          );
+          //     return ListView(
+          //       children: [
+          //         const SizedBox(height: 10),
+          //         for (final document in documents) ...[
+          //           Dismissible(
+          //               key: ValueKey(document.id),
+          //               onDismissed: (_) {
+          //                 FirebaseFirestore.instance
+          //                     .collection(
+          //                         'users') // obsługa wielu użytkowników po zalogowaniu każdy ma inne dane
+          //                     .doc(userID)
+          //                     .collection('categories')
+          //                     .doc(document.id)
+          //                     .delete();
+          //               },
+          //               child: CategoryWidget(document['title'])),
+          //         ],
+          //         const SizedBox(
+          //           height: 20,
+          //         ),
+          //         Padding(
+          //           padding:
+          //               const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          //           child: TextField(
+          //             controller: controller,
+          //             decoration: InputDecoration(
+          //               border: OutlineInputBorder(
+          //                 borderRadius: BorderRadius.circular(25.0),
+          //               ),
+          //             ),
+          //             maxLines: null,
+          //           ),
+          //         ),
+          //       ],
+          //     );
+          //   },
+          // );
         },
       ),
     );
