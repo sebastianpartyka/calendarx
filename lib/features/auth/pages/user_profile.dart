@@ -7,6 +7,15 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProfileScreen(
+      appBar: AppBar(
+        title: const Text('Profile:'),
+        centerTitle: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
+      ),
       providerConfigs: const [
         EmailProviderConfiguration(),
         // GoogleProviderConfiguration(
