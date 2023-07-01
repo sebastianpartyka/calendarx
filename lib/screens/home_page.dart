@@ -7,7 +7,7 @@ import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:calendarx/widgets/navigation_drawer_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:calendarx/screens/edit_event.dart';
+import 'package:calendarx/screens/events/edit_event.dart';
 import 'package:flutter/services.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,7 +15,7 @@ import 'package:calendarx/model/event.dart';
 //import '../model/event.dart';
 import 'package:calendarx/widgets/event_item.dart';
 //import '../widgets/event_item.dart';
-import 'add_event.dart';
+import 'events/add_event.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

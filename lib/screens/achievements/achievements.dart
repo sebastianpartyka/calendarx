@@ -1,7 +1,5 @@
-import 'dart:ffi';
-
-import 'package:calendarx/screens/add_achievement.dart';
-import 'package:calendarx/screens/edit_achievement.dart';
+import 'package:calendarx/screens/achievements/add_achievement.dart';
+import 'package:calendarx/screens/achievements/edit_achievement.dart';
 import 'package:calendarx/screens/goals/goals.dart';
 import 'package:calendarx/widgets/bottom_app_bar.dart';
 import 'package:flutter/material.dart';

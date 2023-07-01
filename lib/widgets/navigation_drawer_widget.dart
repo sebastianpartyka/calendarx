@@ -1,9 +1,9 @@
 import 'package:calendarx/features/auth/pages/user_profile.dart';
-import 'package:calendarx/screens/achievements.dart';
+import 'package:calendarx/screens/achievements/achievements.dart';
 import 'package:calendarx/screens/goals/goals.dart';
 import 'package:calendarx/screens/home_page.dart';
 import 'package:calendarx/screens/index1.dart';
-import 'package:calendarx/screens/routines.dart';
+import 'package:calendarx/screens/routines/routines.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:kalendar2/DemoAppDisplayEvent/DemoApp.dart';
