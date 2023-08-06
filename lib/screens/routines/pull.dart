@@ -63,13 +63,10 @@ class _PullState extends State<Pull> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           alignment: Alignment.topCenter,
-                          child: Positioned(
-                            left: 10,
-                            child: Image.asset(
-                              'assets/images/Pull2t.png', //obrazek do podmiany
-                              height: 270,
-                              //width: 200,
-                            ),
+                          child: Image.asset(
+                            'assets/images/Pull2t.png', //obrazek do podmiany
+                            height: 270,
+                            //width: 200,
                           ),
                         ),
                       ),

@@ -33,33 +33,35 @@ class _RoutinesState extends State<Routines> {
           ),
         ),
         //bottomNavigationBar: const BottomNavBar(),
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: const [
-            RoutineTile(Fbwa(), 'FBW A'),
-            RoutineTile(Fbwb(), 'FBW B'),
-            RoutineTile(Push(), 'Push 1'),
-            RoutineTile(Pull(), 'Pull 1'),
-            RoutineTile(Push2(), 'Push 2'),
-            RoutineTile(Pull2(), 'Pull 2'),
-            RoutineTile(Legs(), 'Legs 1'),
-            RoutineTile(Legs2(), 'Legs 2'),
-            RoutineTile(Legs3(), 'Legs 3'),
-            RoutineTile(Abs(), 'ABS'),
-            RoutineTile(Forearms(), 'Forearms'),
-            RoutineTile(Calves(), 'Calves & Shins'),
-            // Padding(
-            //   padding: const EdgeInsets.all(10.0),
-            //   child: Container(
-            //     height: 50,
-            //     width: 50,
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(20),
-            //       color: Colors.blue,
-            //     ),
-            //   ),
-            // ),
-          ],
+        body: SizedBox(
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: const [
+              RoutineTile(Fbwa(), 'FBW A'),
+              RoutineTile(Fbwb(), 'FBW B'),
+              RoutineTile(Push(), 'Push 1'),
+              RoutineTile(Pull(), 'Pull 1'),
+              RoutineTile(Push2(), 'Push 2'),
+              RoutineTile(Pull2(), 'Pull 2'),
+              RoutineTile(Legs(), 'Legs 1'),
+              RoutineTile(Legs2(), 'Legs 2'),
+              RoutineTile(Legs3(), 'Legs 3'),
+              RoutineTile(Abs(), 'ABS'),
+              RoutineTile(Forearms(), 'Forearms'),
+              RoutineTile(Calves(), 'Calves & Shins'),
+              // Padding(
+              //   padding: const EdgeInsets.all(10.0),
+              //   child: Container(
+              //     height: 50,
+              //     width: 50,
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(20),
+              //       color: Colors.blue,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
         )
         // Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
         //   const SizedBox(
@@ -120,45 +122,43 @@ class NewRoutine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Ink(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.blue,
-          ),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  (child),
-                  style: const TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              Positioned(
-                bottom: 10,
-                right: 20,
-                height: 90,
-                width: 90,
-                child: Image.asset(
-                  'assets/images/hantelTransparent.png',
-                  fit: BoxFit.cover,
-                  height: 30,
-                ),
-              ),
-            ],
-          ),
-          // SizedBox(
-          //   child: Image.asset('assets/images/hantelTransparent.png'),
-          // )
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Ink(
+        height: 50,
+        width: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.blue,
         ),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                (child),
+                style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
+            Positioned(
+              bottom: 10,
+              right: 20,
+              height: 90,
+              width: 90,
+              child: Image.asset(
+                'assets/images/hantelTransparent.png',
+                fit: BoxFit.cover,
+                height: 30,
+              ),
+            ),
+          ],
+        ),
+        // SizedBox(
+        //   child: Image.asset('assets/images/hantelTransparent.png'),
+        // )
       ),
     );
   }

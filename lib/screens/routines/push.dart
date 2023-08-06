@@ -63,13 +63,10 @@ class _PushState extends State<Push> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           alignment: Alignment.topCenter,
-                          child: Positioned(
-                            left: 10,
-                            child: Image.asset(
-                              'assets/images/Push2t.png',
-                              height: 270,
-                              //width: 200,
-                            ),
+                          child: Image.asset(
+                            'assets/images/Push2t.png',
+                            height: 270,
+                            //width: 200,
                           ),
                         ),
                       ),
