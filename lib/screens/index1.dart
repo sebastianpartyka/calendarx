@@ -64,7 +64,8 @@ final creationTime = FirebaseAuth.instance.currentUser?.metadata.creationTime;
 final lastSignInTime =
     FirebaseAuth.instance.currentUser?.metadata.lastSignInTime;
 
-var apiURL = "https://type.fit/api/quotes";
+// var apiURL = "https://type.fit/api/quotes";
+var apiURL = "https://boisterous-platypus-01150a.netlify.app";
 
 // DateTime dateToday =
 //     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
