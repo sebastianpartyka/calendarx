@@ -23,7 +23,7 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = FirebaseAuth.instance.currentUser!.displayName;
+    final name = FirebaseAuth.instance.currentUser!.displayName ?? "Achievify";
     final email = FirebaseAuth.instance.currentUser?.email;
     // final urlImage =
     //     'https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png';
@@ -189,9 +189,13 @@ class NavigationDrawerWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    email,
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  SizedBox(
+                    width: 120,
+                    child: Text(
+                      email,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
                 ],
               )
